@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <label for="" class="col-sm-2 control-label">GitHub</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" name="github_name" value="" type="text">
+                                    <input class="form-control" name="github_name" value="{{$info->gitHub}}" type="text">
                                 </div>
 
                                 <div class="col-sm-4 help-block">
@@ -40,7 +40,7 @@
                             <div class="form-group">
                                 <label for="" class="col-sm-2 control-label">邮 箱</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" name="email" value="" type="text">
+                                    <input class="form-control" name="email" value="{{$info->email}}" type="text">
                                 </div>
                                 <div class="col-sm-4 help-block">
                                     如：name@website.com
@@ -50,7 +50,7 @@
                             <div class="form-group">
                                 <label for="" class="col-sm-2 control-label">真实姓名</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" name="real_name" value="" type="text">
+                                    <input class="form-control" name="real_name" value="{{$info->real_name}}" type="text">
                                 </div>
                                 <div class="col-sm-4 help-block">
                                     如：李小明
@@ -60,7 +60,7 @@
                             <div class="form-group">
                                 <label for="" class="col-sm-2 control-label">城市</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" name="city" value="" type="text">
+                                    <input class="form-control" name="city" value="{{$info->city}}" type="text">
                                 </div>
                                 <div class="col-sm-4 help-block">
                                     如：北京、广州
@@ -68,39 +68,49 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="" class="col-sm-2 control-label">公司</label>
+                                <label for="" class="col-sm-2 control-label">职业</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" name="company" value="" type="text">
+                                    <input class="form-control" name="job" value="{{$info->job}}" type="text">
                                 </div>
                                 <div class="col-sm-4 help-block">
-                                    如：阿里巴巴
+                                    如：c++研发工程师
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="" class="col-sm-2 control-label">微博个人页面</label>
+                                <label for="" class="col-sm-2 control-label">微信</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" name="weibo_link" value="" type="text">
+                                    <input class="form-control" name="weChat" value="{{$info->weChat}}" type="text">
                                 </div>
                                 <div class="col-sm-4 help-block">
-                                    微博个人主页链接
+                                    微信号
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="" class="col-sm-2 control-label">Twitter 帐号</label>
+                                <label for="" class="col-sm-2 control-label">QQ</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" name="twitter_account" value="" type="text">
+                                    <input class="form-control" name="qq" value="{{$info->qq}}" type="text">
                                 </div>
                                 <div class="col-sm-4 help-block">
-                                    如：summer_charlie
+                                    QQ号
                                 </div>
                             </div>
+
+                                <div class="form-group">
+                                    <label for="" class="col-sm-2 control-label">电话</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" name="tell" value="{{$info->tell}}" type="text">
+                                    </div>
+                                    <div class="col-sm-4 help-block">
+                                        电话号码
+                                    </div>
+                                </div>
 
                             <div class="form-group">
                                 <label for="" class="col-sm-2 control-label">个人网站</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" name="personal_website" value="" type="text">
+                                    <input class="form-control" name="selfWeb" value="{{$info->selfWeb}}" type="text">
                                 </div>
                                 <div class="col-sm-4 help-block">
                                     如：example.com，不需要加前缀 https://
