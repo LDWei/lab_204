@@ -12,16 +12,16 @@
 
     <!-- ================== BEGIN BASE CSS STYLE ================== -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="assets/css/animate.min.css" rel="stylesheet" />
-    <link href="assets/css/style.min.css" rel="stylesheet" />
-    <link href="assets/css/style-responsive.min.css" rel="stylesheet" />
-    <link href="assets/css/theme/default.css" id="theme" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/css/animate.min.css')}}" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/css/style.min.css')}}" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/css/style-responsive.min.css')}}" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/css/theme/default.css')}}" id="theme" rel="stylesheet" />
     <!-- ================== END BASE CSS STYLE ================== -->
 
     <!-- ================== BEGIN BASE JS ================== -->
-    <script src="assets/plugins/pace/pace.min.js"></script>
+    <script src="{{ URL::asset('assets/plugins/pace/pace.min.js')}}"></script>
     <!-- ================== END BASE JS ================== -->
 </head>
 <body style="font-size: 14px;">
@@ -96,7 +96,7 @@
                                         margin-top: 16px;
                                         border: 1px solid white;
                                         border-radius: 50%;
-                                    " alt="Summer" src="https://dn-phphub.qbox.me/uploads/avatars/16876_1497095210.png?imageView2/1/w/100/h/100">
+                                    " alt="" src="{{url($info->avatar)}}">
                         </li>
                         <li role="presentation" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -104,14 +104,11 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ route('logout') }}" style="text-align: center">
+                                    <a href="{{ route('user.page',Auth::user()->id) }}" style="text-align: center">
                                         <span class="glyphicon glyphicon-user"></span>&nbsp个人中心</a>
-                                    <a href="{{ route('logout') }}" style="text-align: center">
+                                    <a href="{{ route('user.edit_page') }}" style="text-align: center">
                                         <span class="glyphicon glyphicon-pencil"></span>&nbsp编辑资料
                                     </a>
-                                    {{--<a href="{{ route('logout') }}" class="list-group-item">--}}
-                                        {{--<span class="badge">4</span>&nbsp未读消息--}}
-                                    {{--</a>--}}
                                     <a href="{{ route('logout') }}" style="text-align: center" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();" >
                                         <span class="glyphicon glyphicon-remove"></span>&nbsp退出登陆

@@ -12,13 +12,13 @@ class CreateCatsTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   if(Schema::hastable('cats')){
+        Schema::dropIfExists('cats');
+    };
         Schema::create('cats', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('cat_id')->unsigned();
-            $table->integer('post_id')->unsigned();
-            $table->string('cat_name');
+            $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('name')->unique();
         });
     }
 

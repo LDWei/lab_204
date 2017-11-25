@@ -14,14 +14,15 @@
 Auth::routes();
 //********************************display*************************************
 Route::get('/', 'HomeController@index')->name('home');
-//********************************userpage************************************
-Route::get('/userpage','UserController@index');
-Route::get('/useredit',function(){
-    return view('user.useredit');
-});
-Route::get('/edit_avatar',function(){
-    return view('user.edit_avatar');
-});
-Route::get('/edit_passwd',function(){
-    return view('user.edit_passwd');
-});
+Route::get('/welcome', 'HomeController@welcome')->name('welcome');
+//********************************user_page************************************
+Route::get('/user/edit','UserController@showEdit')->name('user.edit_page');//为什么要放在它的上面才可以查询
+Route::get('/user/{id}','UserController@show')->name('user.page');
+
+Route::get('/user/{id}/save','UserController@saveEdit')->name('user.save_edit');
+Route::get('/user/{id}/edit_avatar','UserController@showAvatarEdit')->name('user.avatar_edit');
+Route::get('/user/{id}/edit_password','UserController@showPasswordEdit')->name('user.password_edit');
+
+//User
+Route::get('/article/{id}','UserController@editArticle')->name('user.article');
+Route::post('/article_put','UserController@store')->name('user.article_put');

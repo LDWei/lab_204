@@ -13,16 +13,19 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('commnets', function (Blueprint $table) {
+        if(Schema::hastable('comments')){
+            Schema::dropIfExists('comments');
+        };
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('post_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->string('content');
+            $table->text('content');
             $table->string('like')->default(0);
             $table->timestamps();
 
-            $table->foreign('post_id')->references('id')->on('posts');
-            $table->foreign('user_id')->references('id')->on('users');
+//            $table->foreign('post_id')->references('id')->on('posts');
+//            $table->foreign('user_id')->references('id')->on('users');
     });
     }
 

@@ -14,3 +14,12 @@ if (!function_exists('isAdmin')) {
         return $user != null && $user instanceof User && $user->admin == 1;
     }
 }
+
+
+if (!function_exists('getAvatar')) {
+    function getAvatar($user_id)
+    {
+        $url = User::find($user_id)->avatar;
+
+    }
+}

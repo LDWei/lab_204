@@ -14,17 +14,19 @@ class CreatePostsTable extends Migration
     public function up()
     {
         //
+        if(Schema::hastable('posts')){
+            Schema::dropIfExists('posts');
+        };
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('content');
+            $table->string('title')->nullable(false);
+            $table->longText('content')->nullable(false);
             $table->integer('user_id')->unsigned();
             $table->integer('cat_id')->unsigned();
-            $table->string('read');
-            $table->string('like');
+            $table->integer('view_count')->unsigned()->default(0);
+            $table->integer('like')->unsigned()->default(0);
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

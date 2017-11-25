@@ -25,4 +25,8 @@ class HomeController extends Controller
     {
         return view('display.index');
     }
+    public function welcome()
+    {
+        return view('display.welcome');
+    }
 }

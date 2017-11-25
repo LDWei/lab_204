@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var 
      */
     protected $fillable = [
-        'name', 'email', 'password','real_name','sex','avatar','tell','qq','city','job','admin',
+        'id','name', 'email', 'password','real_name','sex','avatar','tell','qq','city','job','admin',
     ];
 
     /**
@@ -28,5 +28,19 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * 获取用户下的所有文章。
+     */
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+    /**
+     * 获取用户所有评论。
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 
 }

@@ -103,6 +103,17 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'email' =>[
+            'unique' => '邮箱已存在',
+            'email' => '邮箱格式不正确',
+        ],
+        'password' => [
+            'confirmed' => '两次密码不一致',
+            'min' => '密码不能少于6位',
+        ],
+        'name' => [
+            'unique'=>'用户名已存在',
+        ],
     ],
 
     /*
