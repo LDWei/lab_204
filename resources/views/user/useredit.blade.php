@@ -9,11 +9,11 @@
                         <h2>
                             <i class="fa fa-cog" aria-hidden="true"></i> 编辑个人资料</h2>
                         <hr>
-                        <form class="form-horizontal" method="POST" action="https://laravel-china.org/users/16876" accept-charset="UTF-8" enctype="multipart/form-data">
-                            {{ csrf_field() }}
+                        @foreach($infos as $info)
+                        <form class="form-horizontal" method="POST" action="{{ route('user.save_edit',$info->id) }}" accept-charset="UTF-8" enctype="multipart/form-data">
                             <input name="_method" value="PATCH" type="hidden">
-                            <input name="_token" value="u5odx7F7KVb2Sj1VIMwsHg0PybSxgPJ0TtFemCy5" type="hidden">
-                            @foreach($infos as $info)
+                            <input name="_token" value="{{Auth::user()->remember_token}}" type="hidden">
+                            {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="" class="col-sm-2 control-label">性别</label>
                                 <div class="col-sm-6">
@@ -29,9 +29,8 @@
                             <div class="form-group">
                                 <label for="" class="col-sm-2 control-label">GitHub</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" name="github_name" value="{{$info->gitHub}}" type="text">
+                                    <input class="form-control" name="github" value="{{ $info->gitHub}}" type="text">
                                 </div>
-
                                 <div class="col-sm-4 help-block">
                                     请跟 GitHub 上保持一致
                                 </div>
@@ -43,14 +42,14 @@
                                     <input class="form-control" name="email" value="{{$info->email}}" type="text">
                                 </div>
                                 <div class="col-sm-4 help-block">
-                                    如：name@website.com
-                                </div>
-                            </div>
+                                   如：name@website.com
+                               </div>
+                           </div>
 
-                            <div class="form-group">
-                                <label for="" class="col-sm-2 control-label">真实姓名</label>
-                                <div class="col-sm-6">
-                                    <input class="form-control" name="real_name" value="{{$info->real_name}}" type="text">
+                           <div class="form-group">
+                               <label for="" class="col-sm-2 control-label">真实姓名</label>
+                               <div class="col-sm-6">
+                                   <input class="form-control" name="real_name" value="{{$info->real_name}}" type="text">
                                 </div>
                                 <div class="col-sm-4 help-block">
                                     如：李小明
@@ -97,7 +96,7 @@
                                 </div>
                             </div>
 
-                                <div class="form-group">
+                            <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">电话</label>
                                     <div class="col-sm-6">
                                         <input class="form-control" name="tell" value="{{$info->tell}}" type="text">
@@ -122,8 +121,8 @@
                                     <input class="btn btn-primary" id="user-edit-submit" value="应用修改" type="submit">
                                 </div>
                             </div>
-                                @endforeach
                         </form>
+                        @endforeach
                     </div>
                 </div>
             </div>

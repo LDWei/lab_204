@@ -17,11 +17,15 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/welcome', 'HomeController@welcome')->name('welcome');
 //********************************user_page************************************
 Route::get('/user/edit','UserController@showEdit')->name('user.edit_page');//为什么要放在它的上面才可以查询
-Route::get('/user/{id}','UserController@show')->name('user.page');
+Route::patch('/user/save/{id}','UserController@saveEdit')->name('user.save_edit');
 
-Route::get('/user/{id}/save','UserController@saveEdit')->name('user.save_edit');
 Route::get('/user/{id}/edit_avatar','UserController@showAvatarEdit')->name('user.avatar_edit');
 Route::get('/user/{id}/edit_password','UserController@showPasswordEdit')->name('user.password_edit');
+
+Route::get('/user/{id}','UserController@show')->name('user.page');
+
+
+
 
 //User
 Route::get('/article/{id}','UserController@editArticle')->name('user.article');

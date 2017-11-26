@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreQuestionRequest;
 use App\Cat;
 use App\User;
 use App\Post;
 use App\Comment;
 use Auth;
+use Flash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validate;
+use App\Http\Requests\StoreQuestionRequest;
+use App\Http\Requests\InfoRequest;
 
 class UserController extends Controller
 {
@@ -62,12 +64,7 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //$id = Auth::user()->id;//当前用户id
@@ -92,11 +89,16 @@ class UserController extends Controller
 
     /*
      * save the info from user edit
-     * 用editrequest.php来验证输入
+     * InfoRequest.php来验证输入
      */
-    public function saveEdit($id)
+    public function saveEdit($id, InfoRequest $request)
     {
-
+        //dd($id);
+        $user = User::findOrFail($id);
+        //$this->authorize('saveEdit',$user);//用户授权
+        $request->performUpdate($user);
+        //Flash::success("操作成功");
+        return redirect(route('user.edit_page'));
     }
 
     /**
