@@ -60,7 +60,10 @@ class UserController extends Controller
         $post->title = $request->get('title');
         $post->cat_id = $request->get('cat');
         $post->content = $request->get('test-editormd');
-        $post->save();
+        if($post->save())
+            flash('发布成功')->success()->important();
+        else
+            flash('发布失败')->error()->important();
         return redirect()->back();
     }
 
@@ -93,11 +96,12 @@ class UserController extends Controller
      */
     public function saveEdit($id, InfoRequest $request)
     {
-        //dd($id);
         $user = User::findOrFail($id);
         //$this->authorize('saveEdit',$user);//用户授权
-        $request->performUpdate($user);
-        //Flash::success("操作成功");
+        if($request->performUpdate($user))
+        flash('修改成功')->success()->important();
+        else
+            flash('修改失败')->error()->important();
         return redirect(route('user.edit_page'));
     }
 

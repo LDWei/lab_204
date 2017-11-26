@@ -9,6 +9,16 @@
                         <h2>
                             <i class="fa fa-cog" aria-hidden="true"></i> 编辑个人资料</h2>
                         <hr>
+                        @include('flash::message')
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         @foreach($infos as $info)
                         <form class="form-horizontal" method="POST" action="{{ route('user.save_edit',$info->id) }}" accept-charset="UTF-8" enctype="multipart/form-data">
                             <input name="_method" value="PATCH" type="hidden">
@@ -29,7 +39,7 @@
                             <div class="form-group">
                                 <label for="" class="col-sm-2 control-label">GitHub</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" name="github" value="{{ $info->gitHub}}" type="text">
+                                    <input class="form-control" name="gitHub" value="{{ $info->gitHub}}" type="text">
                                 </div>
                                 <div class="col-sm-4 help-block">
                                     请跟 GitHub 上保持一致
@@ -129,3 +139,6 @@
         </div>
     </div>
     @endsection
+<script>
+    $('#flash-overlay-modal').modal();
+</script>

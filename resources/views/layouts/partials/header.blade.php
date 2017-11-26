@@ -96,7 +96,7 @@
                                         margin-top: 16px;
                                         border: 1px solid white;
                                         border-radius: 50%;
-                                    " alt="" src="{{url($info->avatar)}}">
+                                    " alt="" src="{{url(Auth::user()->avatar)}}">
                         </li>
                         <li role="presentation" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -109,6 +109,10 @@
                                     <a href="{{ route('user.edit_page') }}" style="text-align: center">
                                         <span class="glyphicon glyphicon-pencil"></span>&nbsp编辑资料
                                     </a>
+                                    <a href="{{ route('user.article',Auth::user()->id) }}" style="text-align: center">
+                                        <span class="glyphicon glyphicon-plus"></span>&nbsp发布问题
+                                    </a>
+
                                     <a href="{{ route('logout') }}" style="text-align: center" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();" >
                                         <span class="glyphicon glyphicon-remove"></span>&nbsp退出登陆

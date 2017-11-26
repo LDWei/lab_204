@@ -7,6 +7,8 @@
             <div class="panel-body">
         <h2 class="text-center"> 发布问题/文章</h2>
         <hr>
+                @include('flash::message')
+
         <form method="POST" action="{{ url('/article_put') }}" id="article-create-form">
             <input name="_token" value="{{Auth::user()->remember_token}}" type="hidden">
             {{ csrf_field() }}
@@ -18,7 +20,6 @@
                 </span>
                 @endif
             </div>
-
             <div class="form-group{{ $errors->has('cat') ? ' has-error' : '' }}">
                     <select class="form-control" name="cat">
                         <option value="unselected">选择分类</option>

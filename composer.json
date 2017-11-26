@@ -9,6 +9,7 @@
         "chenhua/laravel5-markdown-editor": "^1.0",
         "erusev/parsedown": "^1.6",
         "fenos/notifynder": "^4.3",
+        "laracasts/flash": "^3.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0"
     },
