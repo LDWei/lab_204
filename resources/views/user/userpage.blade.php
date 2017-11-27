@@ -3,8 +3,10 @@
     <div class="container" style="padding: 40px;">
         <div class="container main-container ">
             <div class="users-show  row">
+                @include('flash::message')
                 <div class="col-md-3">
                     <div style="border-style: solid; border-width: 1px;border-color: #ccc">
+
                     <div class="box" style="padding: 10px;">
                         <div class="padding-sm user-basic-info">
                             <div style="margin: auto">
@@ -94,16 +96,7 @@
                         </div>
 
                     </div>
-
-                    {{--<div class="box text-center">--}}
-                        {{--<p style="margin-bottom: 10px;margin-top: 10px;"><a href="https://laravel-china.org/topics/1531">客户端</a> 登录二维码</p>--}}
-                        {{--<img style="height: 180px; width=180px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAIAAAAiOjnJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADm0lEQVR4nO3dQWojMRRAwXHw/Y9sZm8QRKAXSXbVNplOj/3oxUdSP/5d4vV6LbnOz8/PR17/NHfcJdcRFglhkRAWCWGREBYJYZF4jn6wau4ya3ZOc81cZ/I+Zz//076vO74VriMsEsIiISwSwiIhLBLCIjGcY42smhvVc5ddc51Z9X3u+r48sUgIi4SwSAiLhLBICIuEsEhMz7FOM5qv1Pv7Rmbv51N91/+WPyMsEsIiISwSwiIhLBLCInH9HGvVPsRd86dd87aaJxYJYZEQFglhkRAWCWGREBaJ6TnWLfOVVXOp289n33Zu1pa/yscTFglhkRAWCWGREBYJYZEYzrG+bR/cyKr1W/V6r9O+r7Puho8hLBLCIiEsEsIiISwSwiLxvGV9Va3e37fq+rd8X55YJIRFQlgkhEVCWCSERUJYJB6z/6A+V/2WfX+7zpev3z+47HOYviP4BWGREBYJYZEQFglhkRAWieEcq943V8+3Rm5/n+Bp68OG119yFXgjLBLCIiEsEsIiISwSwiLx2LVeqp5L3WLX51B/j55YJIRFQlgkhEVCWCSERUJYJKbXY806bT3WKrfsZ5y9zsjs9c/6tvgYwiIhLBLCIiEsEsIiISwS2/YVztq1z3HXPspVdp3X5YlFQlgkhEVCWCSERUJYJIRFYvi+wtPmVavsuv6uz2fXeWCeWCSERUJYJIRFQlgkhEVCWCS27Stc5bR1YLPXmbXrvYrTv/+Le4NpwiIhLBLCIiEsEsIiISwS+Xqs0+Y3t/zdWcedZ7biZuCdsEgIi4SwSAiLhLBICIvEcD3WSD2nqfcznvZ+w13n1zsfiysJi4SwSAiLhLBICIuEsEg8TpvrzNp1jtesr1vHtuQq8EZYJIRFQlgkhEVCWCSEReK5a64za3pf2yXvDVx1nV3r5Ia/H90HX05YJIRFQlgkhEVCWCSEReI5+sEt85563dWq+zltX2T+uS25CrwRFglhkRAWCWGREBYJYZGYfl/hrvcAnrbe6LR9i6t4XyFHExYJYZEQFglhkRAWCWGRGK7HusWqudeqfYuzdr1nsF4H5olFQlgkhEVCWCSERUJYJIRF4vo51q5zs3bNvUZOm4d5YpEQFglhkRAWCWGREBYJYZGYnmOd9n7DXe/723Uu16p9f/UczhOLhLBICIuEsEgIi4SwSAiLxPB8rNOcdk76rvnZSH3emDkWRxAWCWGREBYJYZEQFglhkfgPUwxvaR85orMAAAAASUVORK5CYII="><br><br><form method="POST" action="https://laravel-china.org/users/regenerate_login_token" accept-charset="UTF-8">--}}
-                            {{--<input name="_token" value="drbAksPrR8u2OAXtSxo29zJtQ05BFnlJnconVT1d" type="hidden"><div style="margin-bottom: 8px;color: #999;font-size: 0.9em;">登录失败请点击</div>--}}
-                            {{--<input class="btn btn-sm btn-default" style="margin-bottom: 13px;" id="topic-create-submit" value="重新生成" type="submit">--}}
-                        {{--</form>--}}
-
-                    {{--</div>--}}
-                </div>
+            </div>
 
                 <div class="main-col col-md-9 left-col">
                     <div class="panel panel-default" style="border-style: solid; border-width: 1px;border-color: #ccc">

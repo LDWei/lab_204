@@ -29,4 +29,4 @@ Route::get('/user/{id}','UserController@show')->name('user.page');
 
 //User
 Route::get('/article/{id}','UserController@editArticle')->name('user.article');
-Route::post('/article_put','UserController@store')->name('user.article_put');
+Route::post('/article_put/{id}','UserController@store')->name('user.article_put');

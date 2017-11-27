@@ -7,9 +7,8 @@
             <div class="panel-body">
         <h2 class="text-center"> 发布问题/文章</h2>
         <hr>
-                @include('flash::message')
 
-        <form method="POST" action="{{ url('/article_put') }}" id="article-create-form">
+        <form method="POST" action="{{ route('user.article_put',Auth::user()->id) }}" id="article-create-form">
             <input name="_token" value="{{Auth::user()->remember_token}}" type="hidden">
             {{ csrf_field() }}
             <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -42,7 +41,13 @@
                     <li>发布框支持本地存储功能，会在内容变更时保存，「提交」按钮点击时清空</li>
                 </ul>
             </div>
-
+            <div class="form-group{{ $errors->has('test-editormd') ? ' has-error' : '' }}">
+            @if ($errors->has('test-editormd'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('test-editormd') }}</strong>
+                </span>
+            @endif
+            </div>
             <div id="test-editormd">
                 <textarea name="test-editormd" style="display:none;"></textarea>
             </div>
@@ -51,7 +56,7 @@
             <div class="form-group status-post-submit">
                 <button class="btn btn-primary submit-btn" type="submit">发 布</button>
                 &nbsp;&nbsp;or&nbsp;&nbsp;
-                <button class="btn btn-basic" type="submit" name="subject" value="draft">保存草稿</button>
+                <button class="btn btn-basic" type="submit" name="subject" value="1">保存草稿</button>
             </div>
         </form>
     </div>

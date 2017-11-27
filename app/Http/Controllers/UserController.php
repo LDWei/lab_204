@@ -52,31 +52,40 @@ class UserController extends Controller
      * @param $request
      * @return
      */
-    public function store(StoreQuestionRequest $request)
+    public function store($id,StoreQuestionRequest $request)
     {
         //验证以后不要写在这里  另外写一个request 里面写验证规则，然后注入依赖即可。这样避免把控制器写的复杂
         $post = new Post;
-        $post->user_id = Auth::id();
+        $post->user_id = $id;
         $post->title = $request->get('title');
         $post->cat_id = $request->get('cat');
         $post->content = $request->get('test-editormd');
-        if($post->save())
-            flash('发布成功')->success()->important();
-        else
-            flash('发布失败')->error()->important();
-        return redirect()->back();
+        if($request->get('subject'))
+        {
+            $post->status = $request->get('subject');
+            if($post->save())
+                flash('保存草稿成功')->success()->important();
+        }
+        else{
+            if($post->save())
+                flash('发布成功')->success()->important();
+            else
+                flash('发布失败')->error()->important();
+        }
+        return redirect()->route('user.page',$id);
     }
 
 
     public function show($id)
     {
+        return view('user.userpage');
+        dd($id);
         //$id = Auth::user()->id;//当前用户id
         $user = User::findOrFail($id);//获取当前用户信息
         $posts = User::find($id)->posts->where('status',0);//获取用户的文章
         $comments = User::find($id)->comments;//获取用户的所有评论
         $follows =$user->following;//获取用户关注者
-        dd($follows);
-        return view('user.userpage');
+
     }
 
     /*
