@@ -20,6 +20,12 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index']);
+    }
+
+
     public function index()
     {
     }
@@ -78,14 +84,13 @@ class UserController extends Controller
 
     public function show($id)
     {
-        return view('user.userpage');
-        dd($id);
+        //dd($id);
         //$id = Auth::user()->id;//当前用户id
         $user = User::findOrFail($id);//获取当前用户信息
-        $posts = User::find($id)->posts->where('status',0);//获取用户的文章
+        $posts = User::find($id)->posts->where('status',0);//获取用户可公开的文章
         $comments = User::find($id)->comments;//获取用户的所有评论
-        $follows =$user->following;//获取用户关注者
-
+        //$follows =$user->following;//获取用户关注者
+        return view('user.userpage',compact('posts'));
     }
 
     /*
