@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Carbon;
 class Post extends Model
 {
     //
@@ -13,6 +13,7 @@ class Post extends Model
 
     /**
      * 获取该文章所属用户模型。
+     *
      */
     public function user()
     {
@@ -33,5 +34,14 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo('App\Cat');
+    }
+
+    //时间格式化
+    public function getCreatedAtAttribute($date)
+    {
+        if (Carbon::now() < Carbon::parse($date)->addDays(10)) {
+            return Carbon::parse($date);
+        }
+        return Carbon::parse($date)->diffForHumans();
     }
 }

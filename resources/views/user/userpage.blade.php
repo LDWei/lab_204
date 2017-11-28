@@ -44,8 +44,8 @@
             </div>
 
                 <div class="main-col col-md-9 left-col">
-
-
+                    @include('user.partials.articles')
+                    @include('user.partials.replies')
                 </div>
             </div>
         </div>

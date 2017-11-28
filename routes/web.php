@@ -24,7 +24,9 @@ Route::get('/user/{id}/edit_password','UserController@showPasswordEdit')->name('
 
 Route::get('/user/{id}','UserController@show')->name('user.page');
 
-
+Route::get('/detial',function(){
+    return view('user.article_detial');
+})->name('user.page');
 
 
 //User

@@ -103,10 +103,16 @@
 <script src="{{ URL::asset('assets/plugins/jquery-cookie/jquery.cookie.js')}}"></script>
 <script src="{{ URL::asset('assets/js/apps.min.js')}}"></script>
 <!-- ================== END BASE JS ================== -->
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+<script src="{{ URL::asset('assets/plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js')}}"></script>
+<script src="{{ URL::asset('assets/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js')}}"></script>
+<script src="{{ URL::asset('assets/js/forum-details-page.min.js')}}"></script>
+<!-- ================== END PAGE LEVEL JS ================== -->
 
 <script>
     $(document).ready(function() {
         App.init();
+        ForumDetailsPage.init();
     });
 </script>
 </body>

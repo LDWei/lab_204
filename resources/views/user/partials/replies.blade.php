@@ -8,7 +8,7 @@
                 <a href="https://laravel-china.org/topics/2965/it-is-best-to-use-the-markdown-open-source-support-graphical-user-interface-using-the-markdown-editor-tutorial" title="最好用的 Markdown 开源在线支持图形界面的 Markdown 编辑器使用教程" class="remove-padding-left">
                     最好用的 Markdown 开源在线支持图形界面的 Markdown 编辑器使用教程
                 </a>
-                <span class="meta">
+                <span class="small">
          at <span class="timeago popover-with-html" title="" data-content="2017-11-16 11:19:15" data-original-title="2017-11-16 11:19:15">6小时前</span>
       </span>
                 <div class="reply-body markdown-reply content-body">
