@@ -4,7 +4,7 @@
     <div class="page-title has-bg">
         <!-- begin bg-cover -->
         <div class="bg-cover">
-            <img src="assets/img/cover3.jpg" alt="" />
+            <img src="{{ URL::asset('assets/img/cover3.jpg')}}" alt="" />
         </div>
         <!-- end bg-cover -->
         <!-- begin container -->
@@ -16,7 +16,7 @@
                 <li class="active">&nbsp;</li>
             </ul>
             <!-- end breadcrumb -->
-            <h1>How to create an arrow by using css?</h1>
+            <h1>{{$posts->title}}</h1>
         </div>
         <!-- end container -->
     </div>
@@ -29,7 +29,7 @@
             <!-- begin row -->
             <div class="row">
                 <!-- begin col-9 -->
-                <div class="col-md-9">
+                <div class="col-md-13">
                     <!-- begin pagination -->
                     <div class="text-right">
                         <ul class="pagination m-t-0 m-b-15">
@@ -58,24 +58,9 @@
                             <div class="info-container">
                                 <div class="post-user"><a href="#">Radomit Grigor</a> <small>SAYS</small></div>
                                 <div class="post-content">
-                                    Hi All, <br /><br />
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis, risus quis tincidunt vestibulum, elit massa placerat elit,
-                                    at sagittis mi mauris a mi. Ut ullamcorper quam ut nisi aliquam placerat. In et malesuada enim, eu pretium elit.
-                                    Sed ut tortor nulla. Fusce malesuada mi velit, consequat egestas lectus blandit in.<br /><br />
-                                    <pre>
-var handleAddCommasToNumber = function(value) {
-    return value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-};
-</pre>
-                                    Curabitur lacinia hendrerit ante. Suspendisse arcu turpis, gravida quis massa non, sagittis auctor felis.
-                                    Praesent varius feugiat lectus et venenatis. Mauris ornare metus ac euismod interdum. Suspendisse id fringilla elit.
-                                    Donec egestas mollis velit. Donec consectetur malesuada est et luctus. Quisque eget magna accumsan, pellentesque nibh dapibus, ultrices tellus.
-                                    Mauris sit amet justo eu sem eleifend porttitor in ac mi.
-                                    Morbi pellentesque et odio nec vehicula. Nunc vulputate lobortis magna.
-                                    <br /><br />
-                                    Thank you in Advance!<br />
-                                </div>
-                                <div class="post-time">4 hours ago</div>
+                                    {!!  MarkdownEditor::parse("$posts->content")  !!}
+                                <div class="post-time">{{\Carbon\Carbon::parse($posts->created_at)->diffForHumans()}}</div>
+                            </div>
                             </div>
                             <!-- end info-container -->
                         </li>
@@ -178,49 +163,23 @@ var handleAddCommasToNumber = function(value) {
                     <!-- end comment-section -->
                 </div>
                 <!-- end col-9 -->
-                <!-- begin col-3 -->
-                <div class="col-md-3">
-                    <!-- begin panel-forum -->
-                    <div class="panel panel-forum">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">Active Threads</h4>
-                        </div>
-                        <!-- begin threads-list -->
-                        <ul class="threads-list">
-                            <li>
-                                <h4 class="title"><a href="detail.html">Browser Local Storage Tutorial</a></h4>
-                                last reply by <a href="#">Anatoliy</a> 1 minutes ago
-                            </li>
-                            <li>
-                                <h4 class="title"><a href="detail.html">How to create live push notification with HTML5 web socket</a></h4>
-                                last reply by <a href="#">Nasim</a> 8 minutes ago
-                            </li>
-                            <li>
-                                <h4 class="title"><a href="detail.html">Help! How to fire an ajax call while bootstrap modal is loading.</a></h4>
-                                last reply by <a href="#">Ural</a> 15 minutes ago
-                            </li>
-                            <li>
-                                <h4 class="title"><a href="detail.html">Migrate from jQuery 1.9.x to 2.x.x</a></h4>
-                                last reply by <a href="#">Arnold</a> 1 hour ago
-                            </li>
-                            <li>
-                                <h4 class="title"><a href="detail.html">Angular JS IE8 compatibility issues</a></h4>
-                                last reply by <a href="#">Mayeso</a> 4 hours ago
-                            </li>
-                            <li>
-                                <h4 class="title"><a href="detail.html">How to use FontAwesome Cheatsheet?</a></h4>
-                                last reply by <a href="#">Cepheus Herman</a> 1 day ago
-                            </li>
-                        </ul>
-                        <!-- end threads-list -->
-                    </div>
-                    <!-- end panel-forum -->
-                </div>
-                <!-- end col-3 -->
             </div>
             <!-- end row -->
         </div>
         <!-- end container -->
     </div>
     <!-- end content -->
+    <style>
+        .post-content img{
+            max-width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 30px #ccc;
+            -moz-box-shadow: 0 0 30px #ccc;
+            -webkit-box-shadow: 0 0 30px #ccc;
+            margin-bottom: 30px;
+            margin-top: 10px;
+
+        }
+    </style>
 @endsection
