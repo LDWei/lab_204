@@ -179,7 +179,9 @@
             -webkit-box-shadow: 0 0 30px #ccc;
             margin-bottom: 30px;
             margin-top: 10px;
-
         }
     </style>
+    <script>
+    </script>
+
 @endsection

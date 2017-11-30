@@ -6,7 +6,7 @@
         <ul class="list-group">
             @foreach($posts as $post)
             <li class="list-group-item">
-                <a hr="https://laravel-china.org/php_knowledge" title="">
+                <a class="text" href="{{}}" title="">
                     {{$post->title}}
                 </a>
                 <span class="small">
