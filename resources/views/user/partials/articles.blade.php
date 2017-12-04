@@ -6,7 +6,7 @@
         <ul class="list-group">
             @foreach($posts as $post)
             <li class="list-group-item">
-                <a class="text" href="{{}}" title="">
+                <a class="text" href="" title="">
                     {{$post->title}}
                 </a>
                 <span class="small">
