@@ -25,8 +25,5 @@ Route::get('/user/{id}','UserController@show')->name('user.page');
 //******************************articles**************************************
 Route::get('/articles/{id}','PostController@detail')->name('articles.detail');
 Route::get('/articles/{id}/edit','PostController@edit')->name('articles.edit');
-
-
-//User
-Route::get('/article/{id}','UserController@editArticle')->name('user.article');
-Route::post('/article_put/{id}','UserController@store')->name('user.article_put');
+Route::get('/article/{id}','PostController@editArticle')->name('user.article');
+Route::post('/article_put/{id}','PostController@store')->name('user.article_put');

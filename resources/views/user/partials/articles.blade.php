@@ -6,8 +6,8 @@
         <ul class="list-group">
             @foreach($posts as $post)
             <li class="list-group-item">
-                <a class="text" href="" title="">
-                    {{$post->title}}
+                <a class="text" href="{{ route('articles.detail',$post->id) }}" title="{{$post->title}}">
+                    {{{str_limit($post->title, '40')}}}
                 </a>
                 <span class="small">
                 <span> ⋅ </span>

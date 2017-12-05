@@ -16,7 +16,7 @@
                 <li class="active">&nbsp;</li>
             </ul>
             <!-- end breadcrumb -->
-            <h1>{{$posts->title}}</h1>
+            <h1>{{{str_limit($posts->title, '40')}}}</h1>
         </div>
         <!-- end container -->
     </div>
@@ -48,7 +48,7 @@
                     <!-- begin forum-list -->
                     <ul class="forum-list forum-detail-list">
                         <li>
-                            <!-- begin media -->
+                            <!-- begin 头像 -->
                             <div class="media">
                                 <img src="assets/img/user-1.jpg" alt="" />
                                 <span class="label label-danger">ADMIN</span>
@@ -64,66 +64,8 @@
                             </div>
                             <!-- end info-container -->
                         </li>
-                        <li>
-                            <!-- begin media -->
-                            <div class="media">
-                                <img src="assets/img/user-2.jpg" alt="" />
-                                <span class="label label-inverse">USER</span>
-                            </div>
-                            <!-- end media -->
-                            <!-- begin info-container -->
-                            <div class="info-container">
-                                <div class="post-user"><a href="#">Hagano</a> <small>SAYS</small></div>
-                                <div class="post-content">
-                                    Curabitur et tempus risus. Aenean et tortor pretium ligula elementum blandit. Aliquam in nibh vitae ligula molestie tristique nec quis augue.
-                                </div>
-                                <div class="post-time">5 hours ago</div>
-                            </div>
-                            <!-- end info-container -->
-                        </li>
-                        <li>
-                            <!-- begin media -->
-                            <div class="media">
-                                <img src="assets/img/user-3.jpg" alt="" />
-                                <span class="label label-primary">STAFF</span>
-                            </div>
-                            <!-- end media -->
-                            <!-- begin info-container -->
-                            <div class="info-container">
-                                <div class="post-user"><a href="#">Cruz Erwann</a> <small>SAYS</small></div>
-                                <div class="post-content">
-                                    Sed lacinia nec odio eu maximus!
-                                </div>
-                                <div class="post-time">5 hours ago</div>
-                            </div>
-                            <!-- end info-container -->
-                        </li>
-                        <li>
-                            <!-- begin media -->
-                            <div class="media">
-                                <img src="assets/img/user-4.jpg" alt="" />
-                                <span class="label label-inverse">USER</span>
-                            </div>
-                            <!-- end media -->
-                            <!-- begin info-container -->
-                            <div class="info-container">
-                                <div class="post-user"><a href="#">Boyce</a> <small>SAYS</small></div>
-                                <div class="post-content">
-                                    Aliquam sit amet justo accumsan, pulvinar purus vel, aliquet dolor. Cras tempus magna sit amet est sagittis, a egestas ligula fringilla.
-                                    Nunc volutpat metus non turpis cursus faucibus. Aliquam molestie arcu et ipsum placerat, et porta orci euismod. <br /><br />
-                                    Nam sed magna at turpis imperdiet ornare. Maecenas tincidunt iaculis ligula quis ultrices. Nunc id elit vel nulla efficitur ultrices in at nunc.
-                                    Fusce imperdiet urna vitae lectus aliquet lobortis.<br /><br />
-                                    Aenean non felis non leo dignissim egestas id id tellus. Nulla at elit sed lectus suscipit tempus.
-                                    Sed non tellus nunc. Curabitur metus ipsum, luctus sed mi at, ullamcorper laoreet tortor.
-                                    Sed nec sem fringilla erat consectetur vestibulum et rutrum augue. Mauris non ultrices velit. <br /><br />
-                                    Duis rutrum turpis sed ipsum auctor blandit. Phasellus iaculis at augue id commodo. Praesent euismod vel nisl sed eleifend.
-                                    Vestibulum malesuada vehicula viverra. Pellentesque maximus semper suscipit. Morbi eget dignissim urna, sit amet tempor nisl. <br /><br />
-                                    Integer vel ipsum ut enim rutrum lacinia. Fusce sapien nunc, vulputate ac cursus in, luctus ac turpis.
-                                </div>
-                                <div class="post-time">Just Now</div>
-                            </div>
-                            <!-- end info-container -->
-                        </li>
+
+                        @include('user.partials.comments')
                     </ul>
                     <!-- end forum-list -->
 
