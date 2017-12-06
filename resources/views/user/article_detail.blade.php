@@ -16,7 +16,7 @@
                 <li class="active">&nbsp;</li>
             </ul>
             <!-- end breadcrumb -->
-            <h1>{{{str_limit($posts->title, '40')}}}</h1>
+            <h1>{{$posts->title}}</h1>
         </div>
         <!-- end container -->
     </div>

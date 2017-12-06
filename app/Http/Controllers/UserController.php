@@ -17,8 +17,6 @@ class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function __construct()
     {
@@ -41,7 +39,11 @@ class UserController extends Controller
         //
     }
 
-
+    /**
+     * 用户首页包括个人信息，所有文章，所有评论
+     * @param $id
+     * @return view
+     */
     public function show($id)
     {
         //$id = Auth::user()->id;//当前用户id
@@ -57,6 +59,7 @@ class UserController extends Controller
     /*
      * 用户资料编辑页面
      * 根据用户ID 查询出用户的信息返回给前端
+     * @return view
      */
     public function showEdit()
     {
@@ -68,6 +71,7 @@ class UserController extends Controller
     /*
      * save the info from user edit
      * InfoRequest.php来验证输入
+     * @param $id \InfoRequest $request
      */
     public function saveEdit($id, InfoRequest $request)
     {

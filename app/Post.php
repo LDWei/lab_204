@@ -36,6 +36,7 @@ class Post extends Model
         return $this->belongsTo('App\Cat');
     }
 
+
     //时间格式化
     public function getCreatedAtAttribute($date)
     {
