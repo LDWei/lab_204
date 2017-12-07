@@ -4,6 +4,11 @@
     </div>
     <div class="panel-body">
         <ul class="list-group">
+            @if(empty($posts))
+                <li class="list-group-item">
+                    暂无数据哦~
+                </li>
+            @else
             @foreach($posts as $post)
             <li class="list-group-item">
                 <a class="text" href="{{ route('articles.detail',$post->id) }}" title="{{$post->title}}">
@@ -15,10 +20,11 @@
                 <span> ⋅ </span>
                 9 回复
                 <span> ⋅ </span>
-                <span class="timeago popover-with-html" data-original-title="" title="">{{\Carbon\Carbon::parse($post->created_at)->diffForHumans()}}</span>
+                <span class="timeago popover-with-html" data-original-title="" title="">{{ $post->created_at }}</span>
                 </span>
             </li>
                 @endforeach
+                @endif
         </ul>
     </div>
 </div>

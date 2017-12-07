@@ -53,7 +53,7 @@ class UserController extends Controller
         //dd($posts);
         $comments = Comment::whose($user->id)->recent()->limit(20)->get();//获取用户的所有评论和评论所对应的的文章
         //$follows =$user->following;//获取用户关注者
-        return view('user.userpage',compact('posts','comments'));
+        return view('user.userpage',compact('posts','comments','user'));
     }
 
     /*

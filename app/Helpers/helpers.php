@@ -23,3 +23,11 @@ if (!function_exists('getAvatar')) {
 
     }
 }
+
+if (!function_exists('dateCarben')) {
+    function dateCarben($date)
+    {
+        return $date->getTimestamp();
+
+    }
+}

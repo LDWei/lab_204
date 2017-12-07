@@ -30,21 +30,6 @@
             <div class="row">
                 <!-- begin col-9 -->
                 <div class="col-md-13">
-                    <!-- begin pagination -->
-                    <div class="text-right">
-                        <ul class="pagination m-t-0 m-b-15">
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li class="text"><span>...</span></li>
-                            <li><a href="#">10</a></li>
-                            <li class="right"><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- end pagination -->
-
                     <!-- begin forum-list -->
                     <ul class="forum-list forum-detail-list">
                         <li>
@@ -69,20 +54,7 @@
                     </ul>
                     <!-- end forum-list -->
 
-                    <!-- begin pagination -->
-                    <div class="text-right">
-                        <ul class="pagination m-t-0">
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li class="text"><span>...</span></li>
-                            <li><a href="#">10</a></li>
-                            <li class="right"><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- end pagination -->
+                {{ $replays->links() }}
 
                     <!-- begin comment-section -->
                     <div class="comment-banner-msg">
