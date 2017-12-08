@@ -2,7 +2,7 @@
 <li>
     <!-- begin media -->
     <div class="media" style="margin-left: 40px">
-        <img src="{{url($repaly->user->avatar)}}" alt="" />
+        <a href="{{route('user.page',$repaly->user->id)}}"><img src="{{url($repaly->user->avatar)}}" alt="" /></a>
         @if($repaly->user->id == 0)
         <span class="label label-inverse">普通用户</span>
             @else
