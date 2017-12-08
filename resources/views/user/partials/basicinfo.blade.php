@@ -3,25 +3,29 @@
         <div style="margin: auto">
             <div class="media">
                 <div class="media-left">
-                    <div class="image">
-                        @if($user->id == Auth::user()->id)
+                    <div class="image" >
+                        @if(Auth::check()&&$user->id == Auth::user()->id)
                         <a href="https://laravel-china.org/users/16876/edit_avatar" class="popover-with-html" data-toggle="tooltip" data-placement="top" title="修改头像">
-                            @endif
-                            <img class="media-object avatar-112 avatar img-thumbnail" src="https://dn-phphub.qbox.me/uploads/avatars/16876_1497095210.png?imageView2/1/w/200/h/200"></a>
+                        @endif
+                            <img style="border-radius: 50%;" class="media-object avatar-112 avatar img-thumbnail" src="{{ url($user->avatar) }}"></a>
                     </div>
                 </div>
-                <div class="media-bottom">
-                    <h3 class="media-xs">
+                <div class="media-body">
+                    <h3 class="media-heading">
                         {{ $user->name }}
                     </h3>
                     <div class="item">
-                        第 {{ $user->id }} 位会员
+                        <svg width="14" height="16" viewBox="0 0 14 14" class="Icon Icon--male" aria-hidden="true" style="height: 16px; width: 14px;fill:#9fadc7;top: 2px;position: relative;">
+                            <g><path d="M3.025 10.64c-1.367-1.366-1.367-3.582 0-4.95 1.367-1.366 3.583-1.366 4.95 0 1.367 1.368 1.367 3.584 0 4.95-1.367 1.368-3.583 1.368-4.95 0zm10.122-9.368c-.002-.414-.34-.75-.753-.753L8.322 0c-.413-.002-.746.33-.744.744.002.413.338.75.75.752l2.128.313c-.95.953-1.832 1.828-1.832 1.828-2.14-1.482-5.104-1.27-7.013.64-2.147 2.147-2.147 5.63 0 7.777 2.15 2.148 5.63 2.148 7.78 0 1.908-1.91 2.12-4.873.636-7.016l1.842-1.82.303 2.116c.003.414.34.75.753.753.413.002.746-.332.744-.745l-.52-4.073z" fill-rule="evenodd"></path></g></svg>
+                    </div>
+                    <div class="item">
+                        第{{ $user->id }}位会员
                     </div>
                     <div class="item number">
-                        注册于 <span class="timeago popover-with-html" data-content="{{ $user->created_at }}" data-original-title="" title="">5个月前</span>
+                        注册于 <span class="timeago popover-with-html" data-content="2017-06-10 19:46:48" data-original-title="" title="">{{ \Carbon\Carbon::parse($user->created_at)->diffForHumans()}}</span>
                     </div>
                     <div class="item number">
-                        活跃于 <span class="timeago popover-with-html" data-content="{{ $user->update_at }}" data-original-title="" title="">6分钟前</span>
+                        活跃于 <span class="timeago popover-with-html" data-content="2017-12-08 19:09:31" data-original-title="" title="">{{ \Carbon\Carbon::parse($user->created_at)->diffForHumans()}}</span>
                     </div>
                 </div>
             </div>
@@ -48,7 +52,7 @@
                 <li>hahah</li>
             </ul>
         </div>
-        @if($user->id == Auth::user()->id)
+        @if(Auth::check()&&$user->id == Auth::user()->id)
         <a class="btn btn-primary btn-block" href="https://laravel-china.org/users/16876/edit" id="user-edit-button">
             <i class="fa fa-edit"></i> 编辑个人资料
         </a>
@@ -58,3 +62,8 @@
 </div>
 <hr>
 <hr>
+<style>
+    .media-object avatar-112 avatar img-thumbnail{
+
+    }
+</style>

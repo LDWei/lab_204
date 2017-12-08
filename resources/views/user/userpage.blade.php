@@ -4,7 +4,7 @@
         <div class="container main-container ">
             <div class="users-show  row">
                 @include('flash::message')
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div style="border-style: solid; border-width: 1px;border-color: #ccc">
 
                         @include('user.partials.basicinfo')
@@ -43,7 +43,7 @@
                     </div>
             </div>
 
-                <div class="main-col col-md-9 left-col">
+                <div class="main-col col-md-8 left-col">
                     @include('user.partials.articles')
                     @include('user.partials.replies')
                 </div>

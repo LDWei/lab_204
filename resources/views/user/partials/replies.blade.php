@@ -1,7 +1,8 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        我的评论
+        最新评论
     </div>
+
     <div class="panel-body">
         <ul class="list-group">
             @foreach($comments as $index => $comment)
@@ -10,7 +11,7 @@
                     {{{$comment->post->title}}}
                 </a>
                 <span class="small">
-         at <span class="timeago" title="{{ $comment->created_at }}">{{\Carbon\Carbon::parse($comment->created_at)->diffForHumans()}}</span>
+         at <span class="timeago" title="{{ $comment->created_at }}">{{ $comment->created_at }}</span>
       </span>
                 <div class="reply-body markdown-reply content-body">
                     {!! $comment->content !!}

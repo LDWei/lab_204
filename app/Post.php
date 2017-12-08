@@ -33,16 +33,15 @@ class Post extends Model
      */
     public function category()
     {
-        return $this->belongsTo('App\Cat');
+        return $this->belongsTo('App\Cat','cat_id');
     }
 
-
-    //时间格式化
+    //十天内的格式化，十天前的直接原格式
     public function getCreatedAtAttribute($date)
     {
-        if (Carbon::now() < Carbon::parse($date)->addDays(10)) {
-            return Carbon::parse($date);
+        if (Carbon::parse($date)->addDays(40) < Carbon::now()) {//如果现在时间大于文章发布时间加10天
+            return Carbon::parse($date);//直接显示原格式
         }
-        return Carbon::parse($date)->diffForHumans();
+        return Carbon::parse($date)->diffForHumans();//否则格式化时间
     }
 }
