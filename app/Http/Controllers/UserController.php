@@ -50,10 +50,13 @@ class UserController extends Controller
         $user = User::findOrFail($id);//获取当前用户信息
         $posts = $user->posts()->where('status',0)->orderBy('created_at', 'desc')->get();//获取用户可公开的文章
         //不加查询条件可以直接$posts->$user->posts;
-        //dd($posts);
         $comments = Comment::whose($user->id)->recent()->limit(20)->get();//获取用户的所有评论和评论所对应的的文章
-        //$follows =$user->following;//获取用户关注者
-        return view('user.userpage',compact('posts','comments','user'));
+        $follows = $user->followers();//获取用户关注了谁、
+        //$follows = User::findOrFail($id)->followers()->toSql();//获取用户关注了谁、转换为sql语句
+        //dd($follows);
+        $following = $user->following();//获取用户的粉丝
+
+        return view('user.userpage',compact('posts','comments','user','follows','following'));
     }
 
     /*

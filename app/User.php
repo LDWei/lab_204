@@ -43,4 +43,17 @@ class User extends Authenticatable
         return $this->hasMany('App\Comment');
     }
 
+
+    //用户关注的人
+    public function followers()
+    {
+        return $this->belongsToMany(self::class,'follows','follower_id','followed_id')->withTimestamps();
+    }
+
+    //用户的粉丝
+    public function following()
+    {
+        return $this->belongsToMany(self::class,'follows','followed_id','follower_id')->withTimestamps();
+    }
+
 }
