@@ -30,6 +30,7 @@
             <div class="row">
                 <!-- begin col-9 -->
                 <div class="col-md-13">
+                @include('flash::message')
                     <!-- begin forum-list -->
                     <ul class="forum-list forum-detail-list">
                         <li>
@@ -63,10 +64,12 @@
                                     @if(Auth::check()&&$user->id == Auth::user()->id)
                                     <div class="article-meta text-right">
                                         <div class="pull-right actions">
-                                            <a data-method="delete" id="article-delete-button" href="javascript:void(0);" data-url="https://laravel-china.org/topics/delete/6550" data-content="删除" class="admin  popover-with-html" data-original-title="" title="删除" style="cursor:pointer;">
+                                            <a data-method="delete" id="delete" href="javascript:void(0);"  class="admin  popover-with-html"  style="cursor:pointer;">
                                                 <i class="fa fa-trash-o"></i>
-                                                <form action="https://laravel-china.org/topics/delete/6550" method="POST" style="display:none">
-                                                    {!! csrf_field() !!}
+                                                <form id="deleteForm" action="{{ route('user.article_del',$posts->id) }}" method="POST" style="display:none">
+                                                    <input name="_method" value="delete" type="hidden">
+                                                    {{ csrf_field() }}
+                                                    <input name="uid" value="{{ $user->id }}" type="hidden">
                                                 </form>
                                             </a>
                                             &nbsp
@@ -105,9 +108,15 @@
                             </div>
                         </div>
                     </div>
+
+
+
                     <ul class="forum-list forum-detail-list">
                         @include('user.partials.comments')
                     </ul>
+
+
+
                     @if(Auth::check())
                         <div class="alert alert-dismissable alert-info">
                         <i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;请勿发布不友善或者负能量的内容。与人为善，比聪明更重要！
@@ -117,10 +126,11 @@
                         <div class="panel-heading">
                             <h4 class="panel-title">发表评论</h4>
                         </div>
-
                         <div class="panel-body">
-                            <form action="/" name="wysihtml5" method="POST">
-                                <textarea class="textarea form-control" id="wysihtml5" placeholder="Enter text support Markdown ..." rows="12"></textarea>
+                            <form action="{{ route('article.replay',$posts->id) }}" name="replay" method="POST">
+                                {{ csrf_field() }}
+                                <textarea class="textarea form-control" id="wysihtml5" name="text" placeholder="Enter text support Markdown ..." rows="12"></textarea>
+                                <input type="hidden" name="uid" value="{{ $user->id }}">
                                 <div class="m-t-10">
                                     <button type="submit" class="btn btn-theme">回复<i class="fa fa-paper-plane"></i></button>
                                 </div>
@@ -164,7 +174,18 @@
 
         }
     </style>
-    <script>
+    <script type="text/javascript">
+        window.onload=function(){
+            var bt=document.getElementById("delete");
+            bt.onclick=function(){
+                if(confirm("真的要删除吗?")){
+                    $("#deleteForm").submit();
+                }
+                else{
+                    return false;
+                }
+            }
+        }
     </script>
 
 @endsection

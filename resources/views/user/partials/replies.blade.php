@@ -5,7 +5,7 @@
 
     <div class="panel-body">
         <ul class="list-group">
-            @if( count($posts) == 0 )
+            @if( count($comments) == 0 )
                 <li class="list-group-item">
                     <div class="empty-block text-center">没有任何数据~~</div>
                 </li>
@@ -19,7 +19,7 @@
          at <span class="timeago" title="{{ $comment->created_at }}">{{ $comment->created_at }}</span>
       </span>
                 <div class="reply-body markdown-reply content-body">
-                    {!! $comment->content !!}
+                    {!!  MarkdownEditor::parse(" $comment->content ")  !!}
                 </div>
             </li>
                 @endforeach
