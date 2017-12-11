@@ -55,7 +55,6 @@ class UserController extends Controller
         //$follows = User::findOrFail($id)->followers()->toSql();//获取用户关注了谁、转换为sql语句
         //dd($follows);
         $following = $user->following();//获取用户的粉丝
-
         return view('user.userpage',compact('posts','comments','user','follows','following'));
     }
 

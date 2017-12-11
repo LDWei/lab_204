@@ -29,19 +29,22 @@
         <hr>
         <div class="topic-author-box text-center">
             <div class="col-xs-4">
-                <a class="counter"  href="">{{{ count() }}</a>
+                <a class="counter"  href="">17</a>
+                <br>
                 <a class="text" href="">关注者</a>
             </div>
             <div class="col-xs-4">
                 <a class="counter" href="">5</a>
+                <br>
                 <a class="text" href="">讨论</a>
             </div>
             <div class="col-xs-4">
                 <a class="counter" href="">1</a>
+                <br>
                 <a class="text" href="">文章</a>
             </div>
         </div>
-        @
+        <p></p>
         <hr>
         <br>
         <hr>
@@ -101,4 +104,5 @@
     .item{
         margin: 7px 0;
     }
+
 </style>

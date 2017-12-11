@@ -13,8 +13,8 @@
 
 Auth::routes();
 //********************************display*************************************
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/welcome', 'HomeController@welcome')->name('welcome');
 //********************************user_page************************************
 Route::get('/user/edit','UserController@showEdit')->name('user.edit_page');//为什么要放在它的上面才可以查询
 Route::patch('/user/save/{id}','UserController@saveEdit')->name('user.save_edit');

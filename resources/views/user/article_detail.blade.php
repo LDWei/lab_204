@@ -45,32 +45,45 @@
                             <!-- end media -->
                             <!-- begin info-container -->
                             <div class="info-container">
-                                <div class="post-user"><a href="{{route('user.page',$user->id)}}">{{$user->name}}</a> <small>SAYS</small></div>
+                                <div class="post-user"><a href="{{route('user.page',$user->id)}}">{{$user->name}}</a></div>
                                 <div class="post-content">
                                     {!!  MarkdownEditor::parse("$posts->content")  !!}
-                                <div class="post-time">{{ $posts->created_at }}
+                                    <br>
+                                    <hr>
+
                                     <div class="article-meta text-center">
-                                        <i class="fa fa-clock-o"></i> <abbr title="" class="timeago popover-with-html" data-content="2017-11-29 15:11:38" data-original-title="2017-11-29 15:11:38">9天前</abbr>
+                                        <i class="fa fa-clock-o"></i> <span  class="timeago popover-with-html" >{{ $posts->created_at }}</span>
                                         ⋅
-                                        <i class="fa fa-eye"></i> 3
+                                        <i class="fa fa-eye"></i> 0
                                         ⋅
                                         <i class="fa fa-thumbs-o-up"></i> 0
                                         ⋅
-                                        <i class="fa fa-comments-o"></i> 0
-
+                                        <i class="fa fa-comments-o"></i> {{ count($replays) }}
                                     </div>
-                                </div>
+                                    @if(Auth::check()&&$user->id == Auth::user()->id)
+                                    <div class="article-meta text-right">
+                                        <div class="pull-right actions">
+                                            <a data-method="delete" id="article-delete-button" href="javascript:void(0);" data-url="https://laravel-china.org/topics/delete/6550" data-content="删除" class="admin  popover-with-html" data-original-title="" title="删除" style="cursor:pointer;">
+                                                <i class="fa fa-trash-o"></i>
+                                                <form action="https://laravel-china.org/topics/delete/6550" method="POST" style="display:none">
+                                                    {!! csrf_field() !!}
+                                                </form>
+                                            </a>
+                                            &nbsp
+                                            <a id="topic-edit-button" href="https://laravel-china.org/articles/6550/edit" data-content="编辑" class="admin  popover-with-html no-pjax" data-original-title="" title="编辑">
+                                                <i class="fa fa-pencil-square-o"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                        @endif
                             </div>
                             </div>
                             <!-- end info-container -->
                         </li>
-
-                        @include('user.partials.comments')
                     </ul>
                     <!-- end forum-list -->
-
                 {{ $replays->links() }}
-                    <div class="votes-container panel panel-default padding-md">
+                    <div class="votes-container panel panel-default padding-md" style="border-style: solid; border-width: 1px;border-color: #ccc";>
 
                         <div class="panel-body vote-box text-center">
 
@@ -79,28 +92,22 @@
                                 <a data-ajax="post" href="javascript:void(0);" data-url="https://laravel-china.org/topics/7028/upvote" title="" data-content="点赞相当于收藏，可以在个人页面的「赞过的话题」导航里查看" id="up-vote" class="vote btn btn-primary btn-inverted popover-with-html " data-original-title="Up Vote">
                                     <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                     点赞
-
                                 </a>
-
                             </div>
-
                             <div class="voted-users">
-
                                 <div class="user-lists">
-
                                 </div>
                                 <div class="vote-hint">
                                     成为第一个点赞的人吧 <img title=":bowtie:" alt=":bowtie:" class="emoji" src="https://dn-phphub.qbox.me/assets/images/emoji/bowtie.png" align="absmiddle">
                                 </div>
-
                                 <a class="voted-template" href="" data-userid="" style="display:none">
                                     <img class="img-thumbnail avatar avatar-middle" src="" style="width:48px;height:48px;"></a>
                             </div>
-
                         </div>
                     </div>
-
-
+                    <ul class="forum-list forum-detail-list">
+                        @include('user.partials.comments')
+                    </ul>
                     @if(Auth::check())
                         <div class="alert alert-dismissable alert-info">
                         <i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;请勿发布不友善或者负能量的内容。与人为善，比聪明更重要！
@@ -123,7 +130,7 @@
                     <!-- end comment-section -->
                         @else
                         <div class="comment-banner-msg">
-                        只允许登录后评论，请
+                        只允许登录后回复，请
                         <a href="{{ route('login') }}">登录</a> 或者 <a href="{{ route('register') }}">注册</a>.
                         </div>
                         @endif
@@ -145,6 +152,16 @@
             -webkit-box-shadow: 0 0 30px #ccc;
             margin-bottom: 30px;
             margin-top: 10px;
+        }
+        .emoji{
+            width: 30px;
+            height: 30px;
+        }
+        .vote-hint{
+            margin-top: 20px;
+        }
+        .voted-users{
+
         }
     </style>
     <script>

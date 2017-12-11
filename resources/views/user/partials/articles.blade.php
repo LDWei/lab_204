@@ -4,12 +4,12 @@
     </div>
     <div class="panel-body">
         <ul class="list-group">
-            @if(empty($posts))
+            @if( count($posts) == 0 )
                 <li class="list-group-item">
-                    暂无数据哦~
+                        <div class="empty-block text-center">没有任何数据~~</div>
                 </li>
             @else
-            @foreach($posts as $post)
+            @foreach($posts as $index => $post)
             <li class="list-group-item">
                 <a class="text" href="{{ route('articles.detail',$post->id) }}" title="{{$post->title}}">
                     {{{str_limit($post->title, '40')}}}
@@ -24,7 +24,7 @@
                 </span>
             </li>
                 @endforeach
-                @endif
+            @endif
         </ul>
     </div>
 </div>
