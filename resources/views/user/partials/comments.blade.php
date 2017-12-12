@@ -40,14 +40,13 @@
     function reply_del(obj,id){
         {{--$.post('{{ action('PostController@replyDel') }}',{"_token":'{{csrf_token()}}',"id":id},--}}
         $.post("/reply_del/"+id,{"_token":'{{csrf_token()}}'},
+            //体现回调函数
             function(data){
-                //判断是否成功
                 if(data==1){
-                    //移除数据
                     $(obj).parent().parent().parent().remove();
                     //数量计算
-                    tot=Number($('#tot').html());
-                    $('#tot').html(--tot);
+                    num=Number($('#reply-num').html());
+                    $('#reply-num').html(--num);
                 }else{
                     alert('删除失败');
                 }

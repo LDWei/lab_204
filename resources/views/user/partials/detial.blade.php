@@ -25,7 +25,7 @@
                     ⋅
                     <i class="fa fa-thumbs-o-up"></i> 0
                     ⋅
-                    <i class="fa fa-comments-o"></i> {{ count($replays) }}
+                    <i class="fa fa-comments-o"></i> <span class="reply-num" id="reply-num">{{ count($replays) }}</span>
                 </div>
                 @if(Auth::check()&&$user->id == Auth::user()->id)
                     <div class="article-meta text-right">
