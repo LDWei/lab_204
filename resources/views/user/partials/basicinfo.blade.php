@@ -29,19 +29,19 @@
         <hr>
         <div class="topic-author-box text-center">
             <div class="col-xs-4">
-                <a class="counter"  href="">17</a>
+                <a class="counter"  href="">{{ count($following) }}</a>
                 <br>
                 <a class="text" href="">关注者</a>
             </div>
             <div class="col-xs-4">
-                <a class="counter" href="">5</a>
+                <a class="counter" href="">{{ count($comments) }}</a>
                 <br>
-                <a class="text" href="">讨论</a>
+                <a class="text" href="">评论</a>
             </div>
             <div class="col-xs-4">
-                <a class="counter" href="">1</a>
+                <a class="counter" href="">{{ count($posts) }}</a>
                 <br>
-                <a class="text" href="">文章</a>
+                <a class="text" href="">提问/文章</a>
             </div>
         </div>
         <p></p>
