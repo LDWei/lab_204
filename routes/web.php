@@ -29,6 +29,6 @@ Route::get('/article/{id}','PostController@editArticle')->name('user.article');
 Route::post('/article_put/{id}','PostController@store')->name('user.article_put');
 Route::any('/article_delete/{post}','PostController@destroy')->name('user.article_del');
 Route::post('/article_replay/{post}','PostController@replay')->name('article.replay');
-
+Route::get('/rewrite/{post}','PostController@rewrite')->name('article.replay');
 //
 Route::post('user/follow','FollowersController@follow');

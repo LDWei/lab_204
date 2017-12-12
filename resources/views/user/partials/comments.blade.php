@@ -15,7 +15,7 @@
     <div class="info-container" style="margin-left: 120px;padding-bottom: 20px;">
         <div class="post-user"><a href="{{route('user.page',$repaly->user->id)}}">{{$repaly->user->name}}</a> <small>SAYS</small></div>
         <div class="post-content">
-            {!!  MarkdownEditor::parse(" $repaly->content ")  !!}
+            {!! Parsedown::instance()->setMarkupEscaped(true)->text($repaly->content) !!}
         </div>
         <div class="post-time">{{ $repaly->created_at }}</div>
 

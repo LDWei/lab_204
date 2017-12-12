@@ -55,7 +55,7 @@
                                     <div class="article-meta text-center">
                                         <i class="fa fa-clock-o"></i> <span  class="timeago popover-with-html" >{{ $posts->created_at }}</span>
                                         ⋅
-                                        <i class="fa fa-eye"></i> 0
+                                        <i class="fa fa-eye"></i> {{ $posts->view_count }}
                                         ⋅
                                         <i class="fa fa-thumbs-o-up"></i> 0
                                         ⋅
@@ -129,7 +129,7 @@
                         <div class="panel-body">
                             <form action="{{ route('article.replay',$posts->id) }}" name="replay" method="POST">
                                 {{ csrf_field() }}
-                                <textarea class="textarea form-control" id="wysihtml5" name="text" placeholder="Enter text support Markdown ..." rows="12"></textarea>
+                                <textarea class="textarea form-control" id="wysihtml5" name="text" placeholder="请用Markdown语法书写;-),代码片段粘贴时注意使用高亮语法。" rows="12"></textarea>
                                 <input type="hidden" name="uid" value="{{ $user->id }}">
                                 <div class="m-t-10">
                                     <button type="submit" class="btn btn-theme">回复<i class="fa fa-paper-plane"></i></button>
