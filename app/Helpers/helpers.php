@@ -31,3 +31,8 @@ if (!function_exists('dateCarben')) {
 
     }
 }
+
+function navViewActive($anchor)
+{
+    return Route::currentRouteName() == $anchor ? 'active' : '';
+}

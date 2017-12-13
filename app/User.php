@@ -56,4 +56,10 @@ class User extends Authenticatable
         return $this->belongsToMany(self::class,'follows','followed_id','follower_id')->withTimestamps();
     }
 
+    //关注用户
+    public function followThisUser($user)
+    {
+        return $this->followers()->toggle($user);
+    }
+
 }

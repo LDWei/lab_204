@@ -5,6 +5,7 @@
             @include('layouts.partials.editleft')
             <div class="col-md-9  left-col ">
                 <div class="panel panel-default padding-md" style="border-style: solid; border-width: 1px;border-color: #ccc">
+
                     <div class="panel-body ">
                         <h2>
                             <i class="fa fa-cog" aria-hidden="true"></i> 编辑个人资料</h2>
@@ -134,6 +135,7 @@
                         </form>
                         @endforeach
                     </div>
+
                 </div>
             </div>
         </div>

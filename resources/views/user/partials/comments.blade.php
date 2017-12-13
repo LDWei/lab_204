@@ -12,8 +12,8 @@
     <!-- end media -->
 
     <!-- begin info-container -->
-    <div class="info-container" style="margin-left: 120px;padding-bottom: 30px;">
-        <div class="post-user"><a href="{{route('user.page',$repaly->user->id)}}">{{$repaly->user->name}}</a> <small>SAYS</small></div>
+    <div class="info-container" style="margin-left: 120px;padding-bottom: 30px;background-color:#fff;">
+        <div class="post-user"><a href="{{route('user.page',$repaly->user->id)}}">{{$repaly->user->name}}</a> <small>回复：</small></div>
         <div class="post-content">
             {!! Parsedown::instance()->setMarkupEscaped(true)->text($repaly->content) !!}
         </div>
@@ -36,7 +36,7 @@
     <!-- end info-container -->
 </li>
     @endforeach
-<script type="text/javascript">
+<script>
     function reply_del(obj,id){
         {{--$.post('{{ action('PostController@replyDel') }}',{"_token":'{{csrf_token()}}',"id":id},--}}
         $.post("/reply_del/"+id,{"_token":'{{csrf_token()}}'},

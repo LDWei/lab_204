@@ -93,7 +93,7 @@ Website: http://www.seantheme.com/color-admin-v2.0/frontend/forum/
 
 body {
     padding-top: 60px;
-    background: #fff;
+    background: #F2F2F2;
     font-size: 14px;
     font-family: 'Open Sans', "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #707478;
@@ -1602,7 +1602,7 @@ legend {
 }
 .badge.badge-inverse,
 .label.label-inverse {
-    background: #2d353c ;
+    background: #F79F81;
 }
 
 

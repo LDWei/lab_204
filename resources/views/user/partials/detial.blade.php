@@ -11,7 +11,7 @@
         </div>
         <!-- end media -->
         <!-- begin info-container -->
-        <div class="info-container">
+        <div class="info-container" style="background-color:#fff;">
             <div class="post-user"><a href="{{route('user.page',$user->id)}}">{{$user->name}}</a></div>
             <div class="post-content">
                 {!!  MarkdownEditor::parse("$posts->content")  !!}

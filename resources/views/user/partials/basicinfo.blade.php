@@ -1,4 +1,4 @@
-<div class="box" style="padding: 10px;">
+<div class="box" style="padding: 10px;background-color:#fff;">
     <div class="padding-sm user-basic-info">
         <div style="margin: auto">
             <div class="media">
@@ -71,18 +71,16 @@
         </div>
         <hr>
 
-        @if(Auth::check()&&$user->id == Auth::user()->id)
+        @if( Auth::check() && $user->id == Auth::user()->id)
         <a class="btn btn-primary btn-block" href="{{ route('user.edit_page') }}" id="user-edit-button">
             <i class="fa fa-edit"></i> 编辑个人资料
         </a>
-            @else
-            <a data-method="post" class="btn btn-warning btn-block" href="javascript:void(0);" data-url="https://laravel-china.org/users/follow/17036" id="user-edit-button" style="cursor:pointer;">
-                <i class="fa fa-plus"></i> 关注 Ta
-
-                <form action="https://laravel-china.org/users/follow/17036" method="POST" style="display:none">
-                    <input name="_method" value="post" type="hidden">
-                    <input name="_token" value="L4BoHc8MRlbednkTvw3DWEJLU2fsGLR67NWWQizL" type="hidden">
-                </form>
+            @elseif(Auth::check())
+            <a  class="btn btn-{{ !$isFollowing ? 'warning' : 'default' }} btn-block" href="javascript:void(0);" onclick="follow(this,{{$user->id}})"  id="user-edit-button" style="cursor:pointer;">
+                <i class="fa {{!$isFollowing ? 'fa-plus' : 'fa-minus'}}"></i> {{ !$isFollowing ? '关注 Ta' : '已关注' }}
+            </a>
+            <a data-method="post" class="btn btn-{{ !$isFollowing ? 'warning' : 'default' }} btn-block" href="javascript:void(0);" data-url="{{ route('users.doFollow', $user->id) }}" id="user-edit-button">
+                <i class="fa {{!$isFollowing ? 'fa-plus' : 'fa-minus'}}"></i> {{ !$isFollowing ? '关注 Ta' : '已关注' }}
             </a>
             <a class="btn btn-default btn-block" href="https://laravel-china.org/messages/to/17036">
                 <i class="fa fa-envelope-o"></i> 发私信
@@ -106,3 +104,21 @@
     }
 
 </style>
+<script>
+    function follow(obj,fedid){
+        $.get("/followed/"+fedid,{"_token":'{{csrf_token()}}'},
+            //体现回调函数
+            function(data){
+                if(data==1){
+                 $(obj).html('取消关注');
+                 $(obj).class='btn btn-success';
+//                    //数量计算
+//                    num=Number($('#reply-num').html());
+//                    $('#reply-num').html(--num);
+                }else{
+                    alert('关注失败');
+                }
+            }
+        );
+    }
+</script>

@@ -57,33 +57,6 @@ class UserController extends Controller
         return view('user.userpage',compact('posts','comments','user','follows','following'));
     }
 
-    /*
-     * 用户资料编辑页面
-     * 根据用户ID 查询出用户的信息返回给前端
-     * @return view
-     */
-    public function showEdit()
-    {
-        $id = Auth::id();
-        $infos = User::where('id',$id)->get();
-        return view('user.useredit',compact('infos'));
-    }
-
-    /*
-     * save the info from user edit
-     * InfoRequest.php来验证输入
-     * @param $id \InfoRequest $request
-     */
-    public function saveEdit($id, InfoRequest $request)
-    {
-        $user = User::findOrFail($id);
-        //$this->authorize('saveEdit',$user);//用户授权
-        if($request->performUpdate($user))
-        flash('修改成功')->success()->important();
-        else
-            flash('修改失败')->error()->important();
-        return redirect(route('user.edit_page'));
-    }
 
     /**
      * Show the form for editing the specified resource.
