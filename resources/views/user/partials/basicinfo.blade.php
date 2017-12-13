@@ -72,7 +72,7 @@
         <hr>
 
         @if(Auth::check()&&$user->id == Auth::user()->id)
-        <a class="btn btn-primary btn-block" href="https://laravel-china.org/users/16876/edit" id="user-edit-button">
+        <a class="btn btn-primary btn-block" href="{{ route('user.edit_page') }}" id="user-edit-button">
             <i class="fa fa-edit"></i> 编辑个人资料
         </a>
             @else

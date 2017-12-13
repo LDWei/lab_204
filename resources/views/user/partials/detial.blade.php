@@ -3,7 +3,7 @@
         <!-- begin 头像 -->
         <div class="media">
             <a href="{{route('user.page',$user->id)}}"><img src="{{url($user->avatar)}}" alt="{{ $user->name }}" /></a>
-            @if($user->id == 0)
+            @if($user->admin == 0)
                 <span class="label label-inverse">普通用户</span>
             @else
                 <span class="label label-inverse">管理员</span>
@@ -32,7 +32,7 @@
                         <div class="pull-right actions">
                             <a data-method="delete" id="delete" href="javascript:void(0);"  class="admin  popover-with-html"  style="cursor:pointer;">
                                 <i class="fa fa-trash-o"></i>
-                                <form id="deleteForm" action="{{ route('user.article_del',$posts->id) }}" method="POST" style="display:none">
+                                <form id="deleteForm" action="{{ route('user.article_del',$posts->id) }}" method="get" style="display:none">
                                     <input name="_method" value="delete" type="hidden">
                                     {{ csrf_field() }}
                                     <input name="uid" value="{{ $user->id }}" type="hidden">

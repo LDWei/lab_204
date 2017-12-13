@@ -3,7 +3,7 @@
     <!-- begin media -->
     <div class="media" style="margin-left: 40px">
         <a href="{{route('user.page',$repaly->user->id)}}"><img src="{{url($repaly->user->avatar)}}" alt="" /></a>
-        @if($repaly->user->id == 0)
+        @if($repaly->user->admin == 0)
         <span class="label label-inverse">普通用户</span>
             @else
             <span class="label label-inverse">管理员</span>
@@ -20,7 +20,7 @@
         <div class="post-time">{{ $repaly->created_at }}</div>
 
         <span class="operate fa-pull-right" >
-            @if(Auth::check()&&$user->id == Auth::user()->id)
+            @if( Auth::check() && $repaly->user->id == Auth::user()->id)
                 <a id="reply-delete" data-ajax="delete" href="javascript:;" onclick="reply_del(this,{{$repaly->id}})"  title="删除">
                 <i class="fa fa-trash-o"></i>
                 </a>

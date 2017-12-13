@@ -2,6 +2,15 @@
     <div class="alert alert-dismissable alert-info">
         <i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;请勿发布不友善或者负能量的内容。与人为善，比聪明更重要！
     </div>
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="panel panel-forum">
 
         <div class="panel-heading">
@@ -11,7 +20,7 @@
             <form action="{{ route('article.replay',$posts->id) }}" name="replay" method="POST">
                 {{ csrf_field() }}
                 <textarea class="textarea form-control" id="wysihtml5" name="text" placeholder="请用Markdown语法书写;-),代码片段粘贴时注意使用高亮语法。" rows="12"></textarea>
-                <input type="hidden" name="uid" value="{{ $user->id }}">
+                <input type="hidden" name="uid" value="{{ Auth::user()->id }}">
                 <div class="m-t-10">
                     <button type="submit" class="btn btn-theme">回复<i class="fa fa-paper-plane"></i></button>
                 </div>
