@@ -79,10 +79,7 @@
             <a  class="btn btn-{{ !$isFollowing ? 'warning' : 'default' }} btn-block" href="javascript:void(0);" onclick="follow(this,{{$user->id}})"  id="user-edit-button" style="cursor:pointer;">
                 <i class="fa {{!$isFollowing ? 'fa-plus' : 'fa-minus'}}"></i> {{ !$isFollowing ? '关注 Ta' : '已关注' }}
             </a>
-            <a data-method="post" class="btn btn-{{ !$isFollowing ? 'warning' : 'default' }} btn-block" href="javascript:void(0);" data-url="{{ route('users.doFollow', $user->id) }}" id="user-edit-button">
-                <i class="fa {{!$isFollowing ? 'fa-plus' : 'fa-minus'}}"></i> {{ !$isFollowing ? '关注 Ta' : '已关注' }}
-            </a>
-            <a class="btn btn-default btn-block" href="https://laravel-china.org/messages/to/17036">
+            <a class="btn btn-default btn-block" href="">
                 <i class="fa fa-envelope-o"></i> 发私信
             </a>
         @endif
@@ -111,12 +108,8 @@
             function(data){
                 if(data==1){
                  $(obj).html('取消关注');
-                 $(obj).class='btn btn-success';
-//                    //数量计算
-//                    num=Number($('#reply-num').html());
-//                    $('#reply-num').html(--num);
                 }else{
-                    alert('关注失败');
+                    $(obj).html('关注 Ta');
                 }
             }
         );

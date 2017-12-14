@@ -54,7 +54,22 @@ class UserController extends Controller
         $follows = $user->followers()->get();//获取用户关注了谁、
         //$follows = User::findOrFail($id)->followers()->toSql();//获取用户关注了谁、转换为sql语句
         $following = $user->following()->get();//获取用户的粉丝
-        return view('user.userpage',compact('posts','comments','user','follows','following'));
+        //判断用户是否关注了他
+        if( Auth::check() )
+        {
+            $followedId = Auth::user()->id;
+            $followedUser = User::find($followedId);
+            $followers = $followedUser->followers()->pluck('followed_id')->toArray();//获取当前用户关注的所有用户
+            if(in_array($id,$followers)){
+                 $isFollowing = 1;
+            }else{
+                $isFollowing = 0;
+            }
+        }else{
+            $isFollowing = 0;
+        }
+        //dd($followers);
+        return view('user.userpage',compact('posts','comments','user','follows','following','isFollowing'));
     }
 
 
