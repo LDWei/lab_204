@@ -140,6 +140,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Intervention\Image\ImageServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Chenhua\MarkdownEditor\MarkdownEditorServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
@@ -192,6 +193,7 @@ return [
     */
 
     'aliases' => [
+        'Image' => Intervention\Image\Facades\Image::class,
         'MarkdownEditor' => Chenhua\MarkdownEditor\Facades\MarkdownEditor::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,

@@ -9,15 +9,20 @@
                         <h2>
                             <i class="fa fa-picture-o" aria-hidden="true"></i> 请选择图片</h2>
                         <hr>
-                        <form method="POST" action="https://laravel-china.org/users/16876/update_avatar" enctype="multipart/form-data" accept-charset="UTF-8">
-                            <input name="_method" value="PATCH" type="hidden"><input name="_token" value="Rgcy8vg0EcQSkP9H69fOu8jfcmE1VE76WxBdXBrv" type="hidden"><div id="image-preview-div">
+                        <form method="POST" action="" enctype="multipart/form-data" accept-charset="UTF-8" id="avatar">
+                            <input name="_method" value="PATCH" type="hidden">
+                            {{ csrf_field() }}
+
+                            <div id="image-preview-div">
                                 <label for="exampleInputFile">请选择图片：</label>
-                                <br><img id="preview-img" class="avatar-preview-img" src="{{ url($avatar) }}">
+                                <br><img id="preview1" class="avatar-preview-img" src="{{ url($avatar) }}">
                             </div>
+
                             <div class="form-group">
-                                <input name="avatar" id="file" required="" type="file">
+                                <input name="photo" id="file" required="" type="file" onchange="preview(this)">
                             </div>
-                            <br><button class="btn btn-lg btn-primary" id="upload-button" type="submit">上传头像</button>
+
+                            <br><button class="btn btn-lg btn-primary" id="upload-button" onclick="uploadInfo()">上传头像</button>
 
                             <div class="alert alert-info" id="loading" style="display: none;" role="alert">
                                 图片上传中...
@@ -34,3 +39,38 @@
         </div>
     </div>
     @endsection
+<style>
+    .avatar-preview-img{
+        max-width: 380px;
+    }
+</style>
+<script>
+    function uploadInfo(){
+        var formData = new FormData($("#avatar"));
+        $.ajax({
+            url:"{{ url('upload') }}",
+            type:'POST',
+            data:formData,
+            contentType: false,
+            processData: false,
+            success: function (returndata) {
+                console.log(returndata);
+            },
+            error: function (returndata) {
+                console.log(returndata);
+            }
+        });
+    }
+    function preview(file){
+        var prevDiv = document.getElementById('preview1');
+        if (file.files && file.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+                prevDiv.src = evt.target.result;
+            }
+            reader.readAsDataURL(file.files[0]);
+        } else {
+            prevDiv.innerHTML = '<div class="img" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src=\'' + file.value + '\'"></div>';
+        }
+    }
+</script>
