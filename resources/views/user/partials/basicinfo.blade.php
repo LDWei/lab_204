@@ -4,8 +4,8 @@
             <div class="media">
                 <div class="media-left">
                     <div class="image" >
-                        @if(Auth::check()&&$user->id == Auth::user()->id)
-                        <a href="https://laravel-china.org/users/16876/edit_avatar" class="popover-with-html" data-toggle="tooltip" data-placement="top" title="修改头像">
+                        @if( Auth::check() && $user->id == Auth::user()->id)
+                        <a href="{{ route('user.avatar_edit',$user->id) }}" class="popover-with-html" data-toggle="tooltip" data-placement="top" title="修改头像">
                         @endif
                             <img style="border-radius: 50%;" class="media-object avatar-112 avatar img-thumbnail" src="{{ url($user->avatar) }}"></a>
                     </div>

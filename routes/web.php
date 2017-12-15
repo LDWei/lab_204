@@ -34,7 +34,7 @@ Route::post('/article_replay/{id}','PostController@replay')->name('article.repla
 Route::post('/reply_del/{post}','PostController@replyDel')->name('reply.del');
 Route::get('/rewrite/{post}','PostController@rewrite')->name('article.rewrite');
 //
-Route::post('user/follow','FollowController@follow');
+Route::post(' ','FollowController@follow');
 Route::get('/followed/{id}','FollowController@followUser');
 //头像上传
 Route::post('/avatar/upload','UsersController@avatarUpload');
