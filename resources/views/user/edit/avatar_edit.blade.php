@@ -18,6 +18,8 @@
                                 <br><img id="preview1" class="avatar-preview-img" src="{{ url($avatar) }}">
                             </div>
 
+                            <input name="user_id" type="hidden" value="1">
+
                             <div class="form-group">
                                 <input name="photo" id="file" required="" type="file" onchange="preview(this)">
                             </div>
@@ -48,7 +50,7 @@
     function uploadInfo(){
         var formData = new FormData($("#avatar"));
         $.ajax({
-            url:"{{ url('upload') }}",
+            url:"{{ route('avatar.upload') }}",
             type:'POST',
             data:formData,
             contentType: false,

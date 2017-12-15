@@ -106,4 +106,10 @@ class UserController extends Controller
     {
         //
     }
+
+
+    public function avatarUpload(Request $request)
+    {
+        dd($request->user_id);
+    }
 }
