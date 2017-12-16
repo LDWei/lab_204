@@ -37,4 +37,4 @@ Route::get('/rewrite/{post}','PostController@rewrite')->name('article.rewrite');
 Route::post(' ','FollowController@follow');
 Route::get('/followed/{id}','FollowController@followUser');
 //头像上传
-Route::post('/avatar/upload','UsersController@avatarUpload')->name('avatar.upload');
+Route::any('/avatar/upload','EditController@avatarUpload')->name('avatar.upload');
