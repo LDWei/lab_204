@@ -4,7 +4,9 @@
         <div class="users-show">
             @include('layouts.partials.editleft')
             <div class="col-md-9  left-col ">
+                @include('flash::message')
                 <div class="panel panel-default padding-md" style="border-style: solid; border-width: 1px;border-color: #ccc">
+
                     <div class="panel-body padding-bg">
                         <h2>
                             <i class="fa fa-picture-o" aria-hidden="true"></i> 请选择图片</h2>
@@ -20,9 +22,9 @@
                                 <input name="photo" id="file" required="" type="file" onchange="preview(this)">
                             </div>
                             <div class="alert alert-warning" id="message" style="display: none;"  role="alert">
-                                图片限于bmp,png,gif,jpeg,jpg格式
+                                图片限于png,gif,jpeg,jpg格式
                             </div>
-                            <br><button class="btn btn-lg btn-primary" id="upload-button" type="submit">上传头像</button>
+                            <br><button class="btn btn-lg btn-primary" id="upload-button" type="submit" style="display: ">上传头像</button>
 
                         </form>
                     </div>
@@ -64,11 +66,13 @@
         var prevDiv = document.getElementById('preview1');
         var extStart = filepath.lastIndexOf(".");
         var ext = filepath.substring(extStart, filepath.length).toUpperCase();
-        if (ext != ".BMP" && ext != ".PNG" && ext != ".GIF" && ext != ".JPG" && ext != ".JPEG") {
+        if (ext != ".PNG" && ext != ".GIF" && ext != ".JPG" && ext != ".JPEG") {
             document.getElementById("message").style.display="";
+            document.getElementById("upload-button").style.display="none";
             return false;
         }else{
             document.getElementById("message").style.display="none";
+            document.getElementById("upload-button").style.display="";
             if (file.files && file.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (evt) {
