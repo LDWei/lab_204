@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Notifications\Notifiable;
 class Post extends Model
 {
     //
+    use Notifiable;
     protected $fillable = [
         'title', 'content', 'user_id','cat_id','view_count','like','status','created_at','update_at',
     ];
