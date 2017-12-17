@@ -1,7 +1,7 @@
 @foreach($replays as $repaly)
 <li>
     <!-- begin media -->
-    <div class="media" style="margin-left: 40px">
+    <div class="media" style="">
         <a href="{{route('user.page',$repaly->user->id)}}"><img src="{{url($repaly->user->avatar)}}" alt="" /></a>
         @if($repaly->user->admin == 0)
         <span class="label label-inverse">普通用户</span>
@@ -12,7 +12,7 @@
     <!-- end media -->
 
     <!-- begin info-container -->
-    <div class="info-container" style="margin-left: 120px;padding-bottom: 30px;background-color:#fff;">
+    <div class="info-container" style="padding-bottom: 30px;background-color:#fff;">
         <div class="post-user"><a href="{{route('user.page',$repaly->user->id)}}">{{$repaly->user->name}}</a> <small>回复：</small></div>
         <div class="post-content">
             {!! Parsedown::instance()->setMarkupEscaped(true)->text($repaly->content) !!}

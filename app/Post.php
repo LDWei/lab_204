@@ -39,9 +39,9 @@ class Post extends Model
     //十天内的格式化，十天前的直接原格式
     public function getCreatedAtAttribute($date)
     {
-        if (Carbon::parse($date)->addDays(40) < Carbon::now()) {//如果现在时间大于文章发布时间加10天
-            return Carbon::parse($date);//直接显示原格式
-        }
+//        if (Carbon::parse($date)->addDays(40) < Carbon::now()) {//如果现在时间大于文章发布时间加10天
+//            return Carbon::parse($date);//直接显示原格式
+//        }
         return Carbon::parse($date)->diffForHumans();//否则格式化时间
     }
 }

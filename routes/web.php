@@ -18,11 +18,12 @@ Route::get('/', 'HomeController@index')->name('home');
 //********************************user_page************************************
 Route::get('/user/edit','EditController@showEdit')->name('user.edit_page');//为什么要放在它的上面才可以查询
 Route::patch('/user/save/{id}','EditController@saveEdit')->name('user.save_edit');
-Route::get('/user/{id}/edit_avatar','EditController@showAvatarEdit')->name('user.avatar_edit');
+Route::get('/user/edit_avatar','EditController@showAvatarEdit')->name('user.avatar_edit');
 Route::get('/user/{id}/save_avatar','EditController@saveAvatar')->name('user.avatar_save');
 Route::get('/user/{id}/edit_password','EditController@showPasswordEdit')->name('user.password_edit');
 Route::get('/user/{id}/save_password','EditController@savePassword')->name('user.password_save');
 Route::get('/user/{id}','UserController@show')->name('user.page');
+Route::get('notifications','NotificationsController@index')->name('notifications');
 
 //******************************articles**************************************
 Route::get('/articles/{id}','PostController@detail')->name('articles.detail');

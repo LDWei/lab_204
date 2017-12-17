@@ -33,13 +33,14 @@
                 @include('flash::message')
                 @include('user.partials.detial')
 
-                    {{ $replays->links() }}
-
                 @include('user.partials.vote')
 
                     <ul class="forum-list forum-detail-list">
                         @include('user.partials.comments')
                     </ul>
+
+                    {{--分页--}}
+                    {{ $replays->links() }}
                 @include('user.partials.user-reply')
 
                 </div>

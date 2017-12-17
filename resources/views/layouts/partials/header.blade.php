@@ -83,8 +83,10 @@
                         <li><a href="{{ route('register') }}">注册</a></li>
                     @else
                         <li>
-                            <a href="{{ route('logout') }}" >
-                                <span class="badge" data-toggle="tooltip" data-placement="bottom" title="消息提醒" style="float: none;font-size: 100%;background-color: #ff7b5f ">4</span>
+                            <a href="{{ route('notifications') }}" >
+                                <span class="badge badge-{{ Auth::user()->message_count > 0 ? 'danger' : 'default'}}" data-toggle="tooltip" data-placement="bottom" title="消息提醒" style="float: none;font-size: 100%;">
+                                    {{ Auth::user()->message_count }}
+                                </span>
                             </a>
                         </li>
                         <li>

@@ -5,7 +5,7 @@
                 <div class="media-left">
                     <div class="image" >
                         @if( Auth::check() && $user->id == Auth::user()->id)
-                        <a href="{{ route('user.avatar_edit',$user->id) }}" class="popover-with-html" data-toggle="tooltip" data-placement="top" title="修改头像">
+                        <a href="{{ route('user.avatar_edit') }}" class="popover-with-html" data-toggle="tooltip" data-placement="top" title="修改头像">
                         @endif
                             <img style="border-radius: 50%;" class="media-object avatar-112 avatar img-thumbnail" src="{{ url($user->avatar) }}"></a>
                     </div>
@@ -29,7 +29,7 @@
         <hr>
         <div class="topic-author-box text-center">
             <div class="col-xs-4">
-                <a class="counter"  href="">{{ count($following) }}</a>
+                <a class="counter"  href="">{{ $user->follower_count }}</a>
                 <br>
                 <a class="text" href="">关注者</a>
             </div>
@@ -106,8 +106,8 @@
         $.get("/followed/"+fedid,{"_token":'{{csrf_token()}}'},
             //体现回调函数
             function(data){
-                if(data==1){
-                 $(obj).html('取消关注');
+                if(data){
+                 $(obj).html('已关注');
                 }else{
                     $(obj).html('关注 Ta');
                 }

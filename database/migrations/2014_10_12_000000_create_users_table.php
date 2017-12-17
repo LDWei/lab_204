@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->index();
             $table->string('real_name')->nullable();
             $table->string('sex')->nullable();
-            $table->string('avatar')->default('uploads/avatars/default/default.png');
+            $table->string('avatar')->nullable();
             $table->string('tell')->nullable();
             $table->string('qq')->nullable();
             $table->string('weChat')->nullable();
