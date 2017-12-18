@@ -216,9 +216,3 @@
     </div>
     <!-- end content -->
     @endsection
-@section("search")
-    <div class="container">
-        <h1>欢迎来到204创新实验室</h1>
-        <h4>武汉大学软件工程国家重点实验室是武汉大学5个中国国家重点实验室之一。[1]1985年9月经国家计委、国家教委批准筹建，于1989年</h4>
-    </div>
-        @endsection

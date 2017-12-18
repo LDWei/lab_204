@@ -15,6 +15,7 @@ Auth::routes();
 //********************************display*************************************
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/forum','HomeController@forum')->name('forum');
 //********************************user_page************************************
 Route::get('/user/edit','EditController@showEdit')->name('user.edit_page');//为什么要放在它的上面才可以查询
 Route::patch('/user/save/{id}','EditController@saveEdit')->name('user.save_edit');
@@ -39,3 +40,4 @@ Route::post(' ','FollowController@follow');
 Route::get('/followed/{id}','FollowController@followUser');
 //头像上传
 Route::any('/avatar/upload','EditController@avatarUpload')->name('avatar.upload');
+

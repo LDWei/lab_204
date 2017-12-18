@@ -48,7 +48,7 @@
                         成果
                     </span>
             </a>
-            <a href="index.html" class="navbar-brand">
+            <a href="{{route('forum')}}" class="navbar-brand">
                 <span class="brand-text">
                        技术
                     </span>
