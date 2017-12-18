@@ -40,28 +40,27 @@
                 <span class="navbar-logo"></span>
                 <span class="brand-text">
                         Lab204
-                    </span>
+                </span>
             </a>
-
             <a href="index.html" class="navbar-brand">
                 <span class="brand-text">
                         成果
-                    </span>
+                </span>
             </a>
             <a href="{{route('forum')}}" class="navbar-brand">
                 <span class="brand-text">
                        技术
-                    </span>
+                </span>
             </a>
             <a href="index.html" class="navbar-brand">
                 <span class="brand-text">
                        基金
-                    </span>
+                </span>
             </a>
             <a href="index.html" class="navbar-brand">
                 <span class="brand-text">
                        公告
-                    </span>
+                </span>
             </a>
         </div>
         <!-- end navbar-header -->
