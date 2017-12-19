@@ -25,6 +25,7 @@ Route::get('/user/{id}/edit_password','EditController@showPasswordEdit')->name('
 Route::get('/user/{id}/save_password','EditController@savePassword')->name('user.password_save');
 Route::get('/user/{id}','UserController@show')->name('user.page');
 Route::get('notifications','NotificationsController@index')->name('notifications');
+Route::get('/messages','UserController@messages')->name('user.messages');
 
 //******************************articles**************************************
 Route::get('/articles/{id}','PostController@detail')->name('articles.detail');
@@ -39,5 +40,5 @@ Route::get('/rewrite/{post}','PostController@rewrite')->name('article.rewrite');
 Route::post(' ','FollowController@follow');
 Route::get('/followed/{id}','FollowController@followUser');
 //头像上传
-Route::any('/avatar/upload','EditController@avatarUpload')->name('avatar.upload');
+Route::post('/avatar/upload','EditController@avatarUpload')->name('avatar.upload');
 

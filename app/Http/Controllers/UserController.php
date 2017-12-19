@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cat;
+use App\Message;
 use App\User;
 use App\Post;
 use App\Comment;
@@ -72,6 +73,13 @@ class UserController extends Controller
         return view('user.userpage',compact('posts','comments','user','follows','following','isFollowing'));
     }
 
+
+    public function messages()
+    {
+        $id = Auth::user()->id;
+        $messages = User::find($id)->messages()->get();//当前用户收到的所有私信
+        return view('user.messages.allMessages');
+    }
 
     /**
      * Show the form for editing the specified resource.
