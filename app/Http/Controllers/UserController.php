@@ -74,12 +74,7 @@ class UserController extends Controller
     }
 
 
-    public function messages()
-    {
-        $id = Auth::user()->id;
-        $messages = User::find($id)->messages()->get();//当前用户收到的所有私信
-        return view('user.messages.allMessages');
-    }
+
 
     /**
      * Show the form for editing the specified resource.

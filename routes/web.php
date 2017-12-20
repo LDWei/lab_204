@@ -25,8 +25,8 @@ Route::get('/user/{id}/edit_password','EditController@showPasswordEdit')->name('
 Route::get('/user/{id}/save_password','EditController@savePassword')->name('user.password_save');
 Route::get('/user/{id}','UserController@show')->name('user.page');
 Route::get('notifications','NotificationsController@index')->name('notifications');
-Route::get('/messages','UserController@messages')->name('user.messages');
-
+Route::get('/messages','MessagesController@messages')->name('user.messages');
+Route::get('/messages/{id}','MessagesController@showMessages')->name('show.messages');
 //******************************articles**************************************
 Route::get('/articles/{id}','PostController@detail')->name('articles.detail');
 Route::get('/articles/{id}/edit','PostController@edit')->name('articles.edit');

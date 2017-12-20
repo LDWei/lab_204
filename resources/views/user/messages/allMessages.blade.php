@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="message-meta">
                                         <p>
-                                            <a href="https://laravel-china.org/messages/799" class="normalize-link-color ">
+                                            <a href="{{ route('show.messages',1) }}" class="normalize-link-color ">
                                                 <i class="fa fa-commenting-o" aria-hidden="true"></i>
                                                 查看对话
                                             </a>
