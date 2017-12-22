@@ -29,7 +29,7 @@
         <hr>
         <div class="topic-author-box text-center">
             <div class="col-xs-4">
-                <a class="counter"  href="">{{ $user->follower_count }}</a>
+                <a class="counter" id="follower_count"  href="">{{ $user->follower_count }}</a>
                 <br>
                 <a class="text" href="">关注者</a>
             </div>
@@ -76,8 +76,8 @@
             <i class="fa fa-edit"></i> 编辑个人资料
         </a>
             @elseif(Auth::check())
-            <a  class="btn btn-{{ !$isFollowing ? 'warning' : 'default' }} btn-block" href="javascript:void(0);" onclick="follow(this,{{$user->id}})"  id="user-edit-button" style="cursor:pointer;">
-                <i class="fa {{!$isFollowing ? 'fa-plus' : 'fa-minus'}}"></i> {{ !$isFollowing ? '关注 Ta' : '已关注' }}
+            <a  class="btn btn-{{ Auth::user()->hasFollowed($user->id) ? 'default' : 'warning' }} btn-block" href="javascript:void(0);" onclick="follow(this,{{$user->id}})"  id="user-edit-button" style="cursor:pointer;">
+                <i class="fa {{ Auth::user()->hasFollowed($user->id) ? 'fa-minus' : 'fa-plus'}}"></i> {{ Auth::user()->hasFollowed($user->id) ? '已关注' : '关注 Ta' }}
             </a>
             <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">发私信</button>
         @endif
@@ -132,20 +132,23 @@
             function(data){
                 if(data){
                  $(obj).html('已关注');
+                var num=Number($('#follower_count').html());
+                 $('#follower_count').html(++num);
                 }else{
                     $(obj).html('关注 Ta');
+                    num=Number($('#follower_count').html());
+                    $('#follower_count').html(--num);
                 }
             }
         );
     }
-
-    $('#exampleModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var recipient = button.data('whatever') // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        var modal = $(this)
-        modal.find('.modal-title').text('New message to ' + recipient)
-        modal.find('.modal-body input').val(recipient)
-    })
+//    $('#exampleModal').on('show.bs.modal', function (event) {
+//        var button = $(event.relatedTarget) // Button that triggered the modal
+//        var recipient = button.data('whatever') // Extract info from data-* attributes
+//        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+//        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+//        var modal = $(this)
+//        modal.find('.modal-title').text('New message to ' + recipient)
+//        modal.find('.modal-body input').val(recipient)
+//    })
 </script>

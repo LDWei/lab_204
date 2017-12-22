@@ -21,7 +21,7 @@ class CreateCommentsTable extends Migration
             $table->integer('post_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->text('content');
-            $table->string('like')->default(0);
+            $table->integer('like')->default(0);
             $table->timestamps();
 
 //            $table->foreign('post_id')->references('id')->on('posts');

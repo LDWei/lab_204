@@ -67,4 +67,27 @@ class User extends Authenticatable
     {
         return $this->hasMany(Message::class,'from_user_id');
     }
+
+    //判断是否关注了对方
+    public function hasFollowed($user)
+    {
+        return !!$this->followers()->where('followed_id',$user)->count();//!!返回布尔值0就返回false
+    }
+
+    //点赞文章
+    public function votes()
+    {
+        return $this->belongsToMany(Post::class,'votes')->withTimestamps();
+    }
+
+    public function voteFor($post)
+    {
+        return $this->votes()->toggle($post);
+    }
+
+    //用户是否已经点赞
+    public function hasVotedFor($post)
+    {
+        return !!$this->votes()->where('id',$post)->count();
+    }
 }

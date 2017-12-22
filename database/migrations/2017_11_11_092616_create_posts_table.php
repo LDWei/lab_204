@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('cat_id')->unsigned();
             $table->integer('view_count')->unsigned()->default(0);
+            $table->integer('vote_count')->unsigned()->default(0);
             $table->integer('like')->unsigned()->default(0);
             $table->tinyInteger('status')->default(0);
             $table->timestamps();

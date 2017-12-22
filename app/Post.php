@@ -10,12 +10,10 @@ class Post extends Model
     //
     use Notifiable;
     protected $fillable = [
-        'title', 'content', 'user_id','cat_id','view_count','like','status','created_at','update_at',
+        'id','title','content','user_id','cat_id','view_count','vote_count','like','status','created_at','update_at',
     ];
-
     /**
      * 获取该文章所属用户模型。
-     *
      */
     public function user()
     {
