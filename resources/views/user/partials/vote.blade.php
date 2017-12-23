@@ -4,9 +4,9 @@
 
         <div class="btn-group">
 
-            <a data-ajax="post" href="javascript:void(0);" data-url="https://laravel-china.org/topics/7028/upvote" title="" data-content="点赞相当于收藏，可以在个人页面的「赞过的话题」导航里查看" id="up-vote" class="vote btn btn-primary btn-inverted popover-with-html " data-original-title="Up Vote">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                点赞
+            <a data-ajax="post" id="vote" href="javascript:;" onclick="vote(this,{{ $posts->id }})" data-url="" title=""  id="up-vote" class="vote btn btn-primary" data-original-title="Up Vote">
+                <i  class="fa fa-thumbs-up" aria-hidden="true"></i>
+                {{ Auth::user()->hasVotedFor($posts->id) ? '已赞': '点赞'}}
             </a>
         </div>
         <div class="voted-users">
@@ -20,3 +20,20 @@
         </div>
     </div>
 </div>
+<script>
+    function vote(obj,posts_id){
+        $.get("/vote/" + posts_id,
+        function (data) {
+            var num=Number($('#vote-num').html());
+            if(data.voted){
+                $(obj).html('已赞');
+                $('#vote-num').html(++num);
+            }
+            else{
+                $(obj).html('点赞')
+                $('#vote-num').html(--num);
+            }
+        }
+        );
+    }
+</script>

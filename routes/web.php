@@ -27,6 +27,7 @@ Route::get('/user/{id}','UserController@show')->name('user.page');
 Route::get('notifications','NotificationsController@index')->name('notifications');
 Route::get('/messages','MessagesController@messages')->name('user.messages');
 Route::get('/messages/{id}','MessagesController@showMessages')->name('show.messages');
+Route::get('/vote/{id}','VotesController@vote')->name('post.vote');
 //******************************articles**************************************
 Route::get('/articles/{id}','PostController@detail')->name('articles.detail');
 Route::get('/articles/{id}/edit','PostController@edit')->name('articles.edit');

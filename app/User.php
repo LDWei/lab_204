@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Post;
 
 class User extends Authenticatable
 {
@@ -88,6 +89,6 @@ class User extends Authenticatable
     //用户是否已经点赞
     public function hasVotedFor($post)
     {
-        return !!$this->votes()->where('id',$post)->count();
+        return !!$this->votes()->where('post_id',$post)->count();
     }
 }

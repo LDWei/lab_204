@@ -55,7 +55,7 @@ class UserController extends Controller
         $follows = $user->followers()->get()->toArray();//获取用户关注了谁、
         //$follows = User::findOrFail($id)->followers()->toSql();//获取用户关注了谁、转换为sql语句
         $following = $user->following()->get();//获取用户的粉丝
-        //判断用户是否关注了他
+        //判断用户是否关注了他 这么写 是非常笨的写法，直接在User model 写一个方法 然后在模板中调用来判断
 //        if( Auth::check() )
 //        {
 //            $userid = Auth::user()->id;
@@ -72,10 +72,6 @@ class UserController extends Controller
     //dd($followers);
         return view('user.userpage',compact('posts','comments','user','follows','following'));
     }
-
-
-
-
     /**
      * Show the form for editing the specified resource.
      *

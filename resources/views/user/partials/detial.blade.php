@@ -23,7 +23,7 @@
                     ⋅
                     <i class="fa fa-eye"></i> {{ $posts->view_count }}
                     ⋅
-                    <i class="fa fa-thumbs-o-up"></i> 0
+                    <i class="fa fa-thumbs-o-up"></i> <span id="vote-num">{{ $posts->vote_count }}</span>
                     ⋅
                     <i class="fa fa-comments-o"></i> <span class="reply-num" id="reply-num">{{ count($replays) }}</span>
                 </div>
