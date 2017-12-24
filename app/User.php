@@ -75,12 +75,13 @@ class User extends Authenticatable
         return !!$this->followers()->where('followed_id',$user)->count();//!!返回布尔值0就返回false
     }
 
-    //点赞文章
+
     public function votes()
     {
         return $this->belongsToMany(Post::class,'votes')->withTimestamps();
     }
 
+    //点赞文章
     public function voteFor($post)
     {
         return $this->votes()->toggle($post);

@@ -2,9 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+
 class Post extends Model
 {
     //
@@ -28,6 +29,12 @@ class Post extends Model
         return $this->hasMany('App\Comment');
     }
 
+
+    //该文章有哪些人点赞了
+    public function whoVotes()
+    {
+        return $this->belongsToMany(User::class,'votes','post_id','user_id')->withTimestamps();
+    }
     /**
      * 获取该文章所属分类模型。
      */
