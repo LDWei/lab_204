@@ -26,11 +26,11 @@
                 </a>
                 <span>·</span>
             @endif
-            <a class="comment-vote" data-ajax="post" id="reply-up-vote-17240" href="javascript:void(0);" data-url="https://laravel-china.org/replies/17240/vote" title="点赞">
+            <a class="comment-vote" data-ajax="post" id="reply-up-vote-17240" href="javascript:void(0);" data-url="" title="点赞">
             <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i> <span class="vote-count">10</span>
         </a>
         <span>·</span>
-        <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('{{$repaly->user->name}}');" title="回复{{$repaly->user->name}}"></a>
+        <a class="fa fa-reply" id="replay-name" href="#wysihtml5" onclick="replyOne('{{$repaly->user->id}}','{{$repaly->user->name}}');" title="{{$repaly->user->name}}"></a>
         </span>
     </div>
     <!-- end info-container -->
@@ -52,6 +52,12 @@
                 }
             }
         );
+    }
+
+    function replyOne(id,name){
+        var replyUser = "@"+name+" ";
+        to_user = id;
+        $("#wysihtml5").val(replyUser).focus();
     }
 </script>
 

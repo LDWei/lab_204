@@ -17,14 +17,14 @@
             <h4 class="panel-title">发表评论</h4>
         </div>
         <div class="panel-body">
-            <form action="{{ route('article.replay',$posts->id) }}" name="replay" method="POST">
-                {{ csrf_field() }}
+            {{--<form action="{{ route('article.replay',$posts->id) }}" name="replay" method="POST">--}}
+                {{--{{ csrf_field() }}--}}
                 <textarea class="textarea form-control" id="wysihtml5" name="text" placeholder="请用Markdown语法书写;-),代码片段粘贴时注意使用高亮语法。" rows="12"></textarea>
                 <input type="hidden" name="uid" value="{{ Auth::user()->id }}">
                 <div class="m-t-10">
-                    <button type="submit" class="btn btn-theme">回复<i class="fa fa-paper-plane"></i></button>
+                    <a  class="btn btn-theme" onclick="submit({{$posts->id}},{{ Auth::user()->id }})">回复<i class="fa fa-paper-plane"></i></a>
                 </div>
-            </form>
+
         </div>
     </div>
     <!-- end comment-section -->
@@ -34,3 +34,15 @@
         <a href="{{ route('login') }}">登录</a> 或者 <a href="{{ route('register') }}">注册</a>.
     </div>
 @endif
+
+<script>
+    function submit(post_id,user_id){
+        var replyUser = $('#wysihtml5').val();
+        var userName = replyUser.split(" ")[0];
+        var link = "/user/"+to_user;
+        var userlink = "["+userName+"]("+link+")";
+        alert(userlink);
+        var content = replyUser.split(" ")[1];//取空格后的回复内容
+        var comm_cont =userlink+content;
+    }
+</script>
