@@ -25,7 +25,6 @@
                                 图片限于png,gif,jpeg,jpg格式
                             </div>
                             <br><button class="btn btn-lg btn-primary" id="upload-button" type="submit" style="display: ">上传头像</button>
-
                         </form>
                     </div>
                 </div>
