@@ -49,7 +49,7 @@ class UserController extends Controller
     {
         //$id = Auth::user()->id;//当前用户id
         $user = User::findOrFail($id);//获取传入用户信息
-        $posts = $user->posts()->where('status',0)->orderBy('created_at', 'desc')->get();//获取用户可公开的文章
+        $posts = $user->posts()->where('status',0)->orderBy('created_at', 'desc')->get();//获取用户可公开的文章，所有文章对应的评论数，点赞数
         //不加查询条件可以直接$posts->$user->posts;
         $comments = Comment::whose($user->id)->recent()->limit(20)->get();//获取用户的所有评论和评论所对应的的文章
         $follows = $user->followers()->get()->toArray();//获取用户关注了谁、

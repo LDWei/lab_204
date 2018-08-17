@@ -20,7 +20,7 @@
                 <span> ⋅ </span>
                 9 回复
                 <span> ⋅ </span>
-                <span class="timeago popover-with-html" data-original-title="" title="">{{ $post->created_at }}</span>
+                <span class="timeago popover-with-html" data-original-title="" title="">{{ $post->created_at->diffForHumans() }}</span>
                 </span>
             </li>
                 @endforeach

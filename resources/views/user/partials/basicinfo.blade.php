@@ -18,7 +18,7 @@
                         第{{ $user->id }}位会员
                     </div>
                     <div class="item">
-                        注册于 <span class="timeago popover-with-html" data-content="2017-06-10 19:46:48" data-original-title="" title="">{{ \Carbon\Carbon::parse($user->created_at)->diffForHumans()}}</span>
+                        注册于 <span class="timeago popover-with-html" data-content="2017-06-10 19:46:48" data-original-title="" title="">{{ $user->created_at->diffForHumans() }}</span>
                     </div>
                     <div class="item">
                         活跃于 <span class="timeago popover-with-html" data-content="2017-12-08 19:09:31" data-original-title="" title="">{{ \Carbon\Carbon::parse($user->updated_at)->diffForHumans()}}</span>

@@ -15,10 +15,13 @@ Auth::routes();
 //********************************display*************************************
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/forum','HomeController@forum')->name('forum');
+Route::get('/forum','HomeController@index')->name('forum');
 //********************************user_page************************************
-Route::get('/user/edit','EditController@showEdit')->name('user.edit_page');//为什么要放在它的上面才可以查询
+
 Route::patch('/user/save/{id}','EditController@saveEdit')->name('user.save_edit');
+Route::get('/user/edit','EditController@showEdit')->name('user.edit_page');//为什么要放在它的上面才可以查询
+
+
 Route::get('/user/edit_avatar','EditController@showAvatarEdit')->name('user.avatar_edit');
 Route::get('/user/{id}/save_avatar','EditController@saveAvatar')->name('user.avatar_save');
 Route::get('/user/{id}/edit_password','EditController@showPasswordEdit')->name('user.password_edit');
@@ -37,6 +40,7 @@ Route::get('/article_delete/{post}','PostController@destroy')->name('user.articl
 Route::post('/article_replay/{id}','PostController@replay')->name('article.replay');
 Route::post('/reply_del/{post}','PostController@replyDel')->name('reply.del');
 Route::get('/rewrite/{post}','PostController@rewrite')->name('article.rewrite');
+Route::get('/list','PostController@articleList')->name('list');
 //
 Route::post(' ','FollowController@follow');
 Route::get('/followed/{id}','FollowController@followUser');

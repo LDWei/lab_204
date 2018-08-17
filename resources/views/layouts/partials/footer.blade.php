@@ -8,11 +8,9 @@
             <div class="col-md-4">
                 <!-- begin section-container -->
                 <div class="section-container">
-                    <h4>About Color Admin</h4>
+                    <h4>关于我们</h4>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices ipsum in elementum porttitor.
-                        Cras porttitor fermentum nisl non elementum. Nulla in placerat libero. Nulla pharetra purus eget diam dictum
-                        ullamcorper nec et eros. Suspendisse consectetur nulla ut volutpat aliquam.
+                        我们是武昌理工学院最棒的实验室有位文豪说得好：「看一个作家的水平，不是看他发表了多少文字，而要看他的废纸篓里扔掉了多少。」我觉得同样的理论适用于编程。好的程序员，他们删掉的代码，比留下来的还要多很多。如果你看见一个人写了很多代码，却没有删掉多少，那他的代码一定有很多垃圾。
                     </p>
                 </div>
                 <!-- end section-container -->
@@ -22,7 +20,7 @@
             <div class="col-md-4">
                 <!-- begin section-container -->
                 <div class="section-container">
-                    <h4>Latest Post</h4>
+                    <h4>友情链接</h4>
                     <ul class="latest-post">
                         <li>
                             <h4 class="title"><a href="#">Consectetur adipiscing elit ultrices</a></h4>
@@ -47,15 +45,15 @@
                 <div class="section-container">
                     <h4>New Users</h4>
                     <ul class="new-user">
-                        <li><a href="#"><img src="assets/img/user-1.jpg" alt="" /></a></li>
-                        <li><a href="#"><img src="assets/img/user-2.jpg" alt="" /></a></li>
-                        <li><a href="#"><img src="assets/img/user-3.jpg" alt="" /></a></li>
-                        <li><a href="#"><img src="assets/img/user-4.jpg" alt="" /></a></li>
-                        <li><a href="#"><img src="assets/img/user-5.jpg" alt="" /></a></li>
-                        <li><a href="#"><img src="assets/img/user-6.jpg" alt="" /></a></li>
-                        <li><a href="#"><img src="assets/img/user-7.jpg" alt="" /></a></li>
-                        <li><a href="#"><img src="assets/img/user-8.jpg" alt="" /></a></li>
-                        <li><a href="#"><img src="assets/img/user-9.jpg" alt="" /></a></li>
+                        <li><a href="#"><img src="{{ URL::asset('assets/img/user-1.jpg')}}" alt="" /></a></li>
+                        <li><a href="#"><img src="{{ URL::asset('assets/img/user-2.jpg')}}" alt="" /></a></li>
+                        <li><a href="#"><img src="{{ URL::asset('assets/img/user-3.jpg')}}" alt="" /></a></li>
+                        <li><a href="#"><img src="{{ URL::asset('assets/img/user-4.jpg')}}" alt="" /></a></li>
+                        <li><a href="#"><img src="{{ URL::asset('assets/img/user-5.jpg')}}" alt="" /></a></li>
+                        <li><a href="#"><img src="{{ URL::asset('assets/img/user-6.jpg')}}" alt="" /></a></li>
+                        <li><a href="#"><img src="{{ URL::asset('assets/img/user-7.jpg')}}" alt="" /></a></li>
+                        <li><a href="#"><img src="{{ URL::asset('assets/img/user-8.jpg')}}" alt="" /></a></li>
+                        <li><a href="#"><img src="{{ URL::asset('assets/img/user-9.jpg')}}" alt="" /></a></li>
                     </ul>
                 </div>
                 <!-- end section-container -->
@@ -70,9 +68,9 @@
 <!-- begin #footer-copyright -->
 <div id="footer-copyright" class="footer-copyright">
     <div class="container">
-        &copy; 2014 - 2015 SeanTheme All Right Reserved
-        <a href="#">Contact Us</a>
-        <a href="#">Knowledge Base</a>
+        &copy; 2017 - 2018 SeanTheme All Right Reserved
+        <a href="#">联系我们</a>
+        <a href="#">武昌理工学院</a>
     </div>
 </div>
 <!-- end #footer-copyright -->
